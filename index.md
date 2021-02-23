@@ -9,6 +9,9 @@ image: https://avatars.githubusercontent.com/u/75855609
 > for developers keen on building bots for Telegram.
 
 # Recent changes
+> ## Update of 23/02/2021
+> Added kick listener
+
 > ## Update of 22/02/2021
 > Added support for bitrate regulation
 
@@ -96,3 +99,14 @@ Decorator handling when stream ends
 Field | Type | Description
 --- | --- | ---
 func | Callable | Callable decorator
+
+# Exceptions
+
+## JS_CORE_NOT_RUNNING
+This error occurs when trying to execute a function before JS Core starts
+
+## PYROGRAM_CLIENT_IS_NOT_RUNNING
+This error occurs when trying to execute a function without initializing Pyrogram Client
+
+## JOIN_ERROR
+This error occurs when trying to execute a join_group_call without active group call
