@@ -4,7 +4,7 @@ description: Async client API for the Telegram Group Calls
 image: https://avatars.githubusercontent.com/u/75855609
 ---
 # PyTgCalls API
-> PyTgCalls is based on PyServerCall, [TgCallsJS](https://github.com/tgcallsjs/tgcalls), 
+> PyTgCalls is based on PyServerCall, [TgCallsJS](https://github.com/tgcallsjs/tgcalls),
 > [SocketIO](https://socket.io/) and [WebRTC](https://webrtc.org/)
 > for developers keen on building bots for Telegram.
 
@@ -14,6 +14,14 @@ image: https://avatars.githubusercontent.com/u/75855609
 
 > ## Update of 13/02/2021
 > Added support to Layer 123
+
+# Audio Needed
+This is audio type needed
+
+Field | Value
+--- | ---
+acodec | pcm_s16le
+bitrate | Your bitrate preference
 
 # Methods
 Here are all the methods available to make requests to PyTgCalls
@@ -74,17 +82,9 @@ Start running Pyrogram and PyTgCalls Session
 Field | Type | Description
 --- | --- | ---
 app | pyrogram.Client | Pyrogram Client Class initialized
-before_start_callable | Callable | Callable decorator before start (Optional)
 
 ## on_event_update
 Decorator handling all information about status of calls and stream
-
-Field | Type | Description
---- | --- | ---
-func | Callable | Callable decorator
-
-## on_stream_end
-Decorator handling when stream ends
 
 Field | Type | Description
 --- | --- | ---
