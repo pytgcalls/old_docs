@@ -9,14 +9,14 @@ image: https://avatars.githubusercontent.com/u/75855609
 > for developers keen on building bots for Telegram.
 
 # Recent changes
+> ## Update of 13/02/2021
+> Added debug mode
+
 > ## Update of 23/02/2021
 > Added kick listener
 
 > ## Update of 22/02/2021
 > Added support for bitrate regulation
-
-> ## Update of 13/02/2021
-> Added support to Layer 123
 
 # Audio Needed
 This is audio type needed
@@ -28,6 +28,14 @@ bitrate | Your bitrate preference
 
 # Methods
 Here are all the methods available to make requests to PyTgCalls
+
+## PyTgCalls
+Class initialization
+
+Field | Type | Description
+--- | --- | ---
+port | Integer | Port to run local server
+log_mode | Boolean | Debug mode
 
 ## join_group_call
 Join to group call with audio source
@@ -91,6 +99,7 @@ Decorator handling all information about status of calls and stream
 
 Field | Type | Description
 --- | --- | ---
+update | Dict | Update Result
 func | Callable | Callable decorator
 
 ## on_stream_end
@@ -99,6 +108,21 @@ Decorator handling when stream ends
 Field | Type | Description
 --- | --- | ---
 func | Callable | Callable decorator
+
+## on_custom_api 
+Decorator handling custom api, this need a dict return
+
+Call Api with
+```
+http://127.0.0.1:{YOUR_PORT(Default is 24859)}/api
+```
+_Need Post request!_
+
+Field | Type | Description
+--- | --- | ---
+update | Dict | Update Result
+func | Callable | Callable decorator
+
 
 # Exceptions
 
