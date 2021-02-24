@@ -9,7 +9,7 @@ image: https://avatars.githubusercontent.com/u/75855609
 > for developers keen on building bots for Telegram.
 
 # Recent changes
-> ## Update of 13/02/2021
+> ## Update of 24/02/2021
 > Added debug mode
 
 > ## Update of 23/02/2021
