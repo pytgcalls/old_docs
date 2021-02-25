@@ -6,7 +6,7 @@ image: https://avatars.githubusercontent.com/u/75855609
 # PyTgCalls API
 > PyTgCalls is based on PyServerCall, [TgCallsJS](https://github.com/tgcallsjs/tgcalls),
 > [SocketIO](https://socket.io/) and [WebRTC](https://webrtc.org/)
-> for developers keen on building bots for Telegram.
+> to work with Telegram group calls.
 
 # Recent changes
 > ## Update of 24/02/2021
@@ -19,7 +19,7 @@ image: https://avatars.githubusercontent.com/u/75855609
 > Added support for bitrate regulation
 
 # Audio Needed
-This is audio type needed
+The following is the required audio type
 
 Field | Value
 --- | ---
@@ -27,7 +27,7 @@ acodec | pcm_s16le
 bitrate | Your bitrate preference
 
 # Methods
-Here are all the methods available to make requests to PyTgCalls
+These are the currently available PyTgCalls methods
 
 ## PyTgCalls
 Class initialization
@@ -38,61 +38,68 @@ port | Integer | Port to run local server
 log_mode | Boolean | Debug mode
 
 ## join_group_call
-Join to group call with audio source
+Join a group call to stream a file
 
 Field | Type | Description
 --- | --- | ---
-chat_id | Integer | Chat ID of Group
-file_path | String | File path of RAW Stream Audio
-bitrate | Integer | Audio stream bitrate (Max 48K Allowed by Telegram)
+chat_id | Integer | Chat ID of a supergroup
+file_path | String | Path of a RAW audio file
+bitrate | Integer | Audio stream bitrate (maximum amount allowed by Telegram: 48K)
 
 ## leave_group_call
-Leave group call
+Leave a group call
 
 Field | Type | Description
 --- | --- | ---
-chat_id | Integer | Chat ID of Group
+chat_id | Integer | Chat ID of a supergroup
 
 ## change_volume_call
-Change volume of audio stream by changing personal volume
+Set the audio stream volume
 
 Field | Type | Description
 --- | --- | ---
-chat_id | Integer | Chat ID of Group
+chat_id | Integer | Chat ID of a supergroup
 volume | Integer | Volume of stream (0-200)
 
 
 ## pause_stream
-Set pause mode audio stream by sending void packets
+Pause the audio stream 
 
 Field | Type | Description
 --- | --- | ---
-chat_id | Integer | Chat ID of Group
+chat_id | Integer | Chat ID of a supergroup
 
 ## resume_stream
-Set resume mode audio stream by resuming stream reading
+Resume the audio stream
 
 Field | Type | Description
 --- | --- | ---
-chat_id | Integer | Chat ID of Group
+chat_id | Integer | Chat ID of a supergroup
 
 ## change_stream
 Change audio stream without reconnection
 
 Field | Type | Description
 --- | --- | ---
-chat_id | Integer | Chat ID of Group
-file_path | String | File path of RAW Stream Audio
+chat_id | Integer | Chat ID of a supergroup
+file_path | String | Path of a RAW audio file
 
 ## get_cache_id
 Return current UserID
 
+## get_active_voice_chats
+Get a list of current active voice chat
+
+## get_port_server
+Get the current internal local port
+
 ## run
-Start running Pyrogram and PyTgCalls Session
+Start PyTgCalls with the provided Pyrogram Client
 
 Field | Type | Description
 --- | --- | ---
-app | pyrogram.Client | Pyrogram Client Class initialized
+app | pyrogram.Client | A Pyrogram client
+before_start_callable | Callable | Callable decorator
 
 ## on_event_update
 Decorator handling all information about status of calls and stream
