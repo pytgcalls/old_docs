@@ -84,6 +84,13 @@ Field | Type | Description
 chat_id | Integer | Chat ID of a supergroup
 file_path | String | Path of a RAW audio file
 
+## is_playing
+Check if is playing or paused the stream
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
 ## get_cache_id
 Return current UserID
 
