@@ -141,3 +141,9 @@ This error occurs when trying to execute a function without initializing Pyrogra
 
 ## JOIN_ERROR
 This error occurs when trying to execute a join_group_call without active group call
+
+## NOT_IN_GROUP
+This error occurs when trying to execute is_playing without an active group call
+
+## NEED_PYROGRAM_CLIENT
+This error occurs when trying to execute run without Pyrogram Client
