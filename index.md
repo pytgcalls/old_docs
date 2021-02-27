@@ -34,6 +34,7 @@ Class initialization
 
 Field | Type | Description
 --- | --- | ---
+app | pyrogram.Client | A Pyrogram client
 port | Integer | Port to run local server
 log_mode | Boolean | Debug mode
 
@@ -105,7 +106,6 @@ Start PyTgCalls with the provided Pyrogram Client
 
 Field | Type | Description
 --- | --- | ---
-app | pyrogram.Client | A Pyrogram client
 before_start_callable | Callable | Callable decorator
 
 ## on_event_update
