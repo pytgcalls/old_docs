@@ -123,6 +123,14 @@ Field | Type | Description
 --- | --- | ---
 func | Callable | Callable decorator
 
+## on_group_call_invite
+Decorator handling when receive invite to Group Call
+
+Field | Type | Description
+--- | --- | ---
+func | Callable | Callable decorator
+
+
 ## on_custom_api 
 Decorator handling custom api, this need a dict return
 
