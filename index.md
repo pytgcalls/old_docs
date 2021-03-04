@@ -9,14 +9,14 @@ image: https://avatars.githubusercontent.com/u/75855609
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 04/03/2021
+> Now is async!
+
 > ## Update of 24/02/2021
 > Added debug mode
 
 > ## Update of 23/02/2021
 > Added kick listener
-
-> ## Update of 22/02/2021
-> Added support for bitrate regulation
 
 # Audio Needed
 The following is the required audio type
