@@ -38,6 +38,15 @@ app | pyrogram.Client | A Pyrogram client
 port | Integer | Port to run local server
 log_mode | Boolean | Debug mode
 
+### _Example_
+``` python
+...
+app = Client(...)
+pytgcalls = PyTgCalls(app)
+...
+```
+
+
 ## join_group_call
 Join a group call to stream a file
 
@@ -47,12 +56,30 @@ chat_id | Integer | Chat ID of a supergroup
 file_path | String | Path of a RAW audio file
 bitrate | Integer | Audio stream bitrate (maximum amount allowed by Telegram: 48K)
 
+### _Example_
+``` python
+...
+pytgcalls.join_group_call(-1001185324811, '/home/user/Laky64/annoying_dog.raw', 48000)
+...
+```
+> ### Warning!
+> Use this function after initializing the NodeJS core
+
 ## leave_group_call
 Leave a group call
 
 Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
+
+### _Example_
+``` python
+...
+pytgcalls.leave_group_call(-1001185324811)
+...
+```
+> ### Warning!
+> Use this function after initializing the NodeJS core
 
 ## change_volume_call
 Set the audio stream volume
@@ -62,6 +89,15 @@ Field | Type | Description
 chat_id | Integer | Chat ID of a supergroup
 volume | Integer | Volume of stream (0-200)
 
+### _Example_
+``` python
+...
+pytgcalls.change_volume_call(-1001185324811, 100)
+...
+```
+
+> ### Warning!
+> Use this function after initializing the NodeJS core and this function have some bugs
 
 ## pause_stream
 Pause the audio stream 
@@ -70,12 +106,32 @@ Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
 
+### _Example_
+``` python
+...
+pytgcalls.pause_stream(-1001185324811)
+...
+```
+
+> ### Warning!
+> Use this function after initializing the NodeJS core
+
 ## resume_stream
 Resume the audio stream
 
 Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
+
+### _Example_
+``` python
+...
+pytgcalls.resume_stream(-1001185324811)
+...
+```
+
+> ### Warning!
+> Use this function after initializing the NodeJS core
 
 ## change_stream
 Change audio stream without reconnection
@@ -85,6 +141,15 @@ Field | Type | Description
 chat_id | Integer | Chat ID of a supergroup
 file_path | String | Path of a RAW audio file
 
+### _Example_
+``` python
+...
+pytgcalls.change_stream(-1001185324811, '/home/user/Laky64/annoying_dog.raw')
+...
+```
+> ### Warning!
+> Use this function after initializing the NodeJS core
+
 ## is_playing
 Check if is playing or paused the stream
 
@@ -92,14 +157,42 @@ Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
 
+### _Example_
+``` python
+...
+print(pytgcalls.is_playing(-1001185324811))
+...
+```
+
 ## get_cache_id
 Return current UserID
+
+### _Example_
+``` python
+...
+print(pytgcalls.get_cache_id())
+...
+```
 
 ## get_active_voice_chats
 Get a list of current active voice chat
 
+### _Example_
+``` python
+...
+print(pytgcalls.get_active_voice_chats())
+...
+```
+
 ## get_port_server
 Get the current internal local port
+
+### _Example_
+``` python
+...
+print(pytgcalls.get_port_server())
+...
+```
 
 ## run
 Start PyTgCalls with the provided Pyrogram Client
@@ -108,13 +201,31 @@ Field | Type | Description
 --- | --- | ---
 before_start_callable | Callable | Callable decorator
 
+### _Example_
+``` python
+...
+pytgcalls.run(handler)
+
+def handler(my_id: int):
+   print(my_id)
+...
+```
+
 ## on_event_update
 Decorator handling all information about status of calls and stream
 
 Field | Type | Description
 --- | --- | ---
-update | Dict | Update Result
 func | Callable | Callable decorator
+
+### _Example_
+``` python
+...
+@pytgcalls.on_event_update()
+async def handler(update: dict):
+    print(update)
+...
+```
 
 ## on_stream_end
 Decorator handling when stream ends
@@ -123,6 +234,15 @@ Field | Type | Description
 --- | --- | ---
 func | Callable | Callable decorator
 
+### _Example_
+``` python
+...
+@pytgcalls.on_stream_end()
+async def handler(chat_id: int):
+    print(chat_id)
+...
+```
+
 ## on_group_call_invite
 Decorator handling when receive invite to Group Call
 
@@ -130,6 +250,14 @@ Field | Type | Description
 --- | --- | ---
 func | Callable | Callable decorator
 
+### _Example_
+``` python
+...
+@pytgcalls.on_group_call_invite()
+async def handler(client: Client, update: MessageService):
+    print(update)
+...
+```
 
 ## on_custom_api 
 Decorator handling custom api, this need a dict return
@@ -142,9 +270,16 @@ _Need Post request!_
 
 Field | Type | Description
 --- | --- | ---
-update | Dict | Update Result
 func | Callable | Callable decorator
 
+### _Example_
+``` python
+...
+@pytgcalls.on_custom_api()
+async def handler(request: dict):
+    return {'result': 'OK'}
+...
+```
 
 # Exceptions
 
