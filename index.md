@@ -182,16 +182,6 @@ print(pytgcalls.get_cache_id())
 ...
 ```
 
-## get_active_voice_chats
-Get a list of current active voice chat
-
-### _Example_
-``` python
-...
-print(pytgcalls.get_active_voice_chats())
-...
-```
-
 ## get_port_server
 Get the current internal local port
 
