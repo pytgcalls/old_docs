@@ -9,14 +9,16 @@ image: https://avatars.githubusercontent.com/u/75855609
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 10/03/2021
+> - Added kick listener
+> - Added new parameters!
+> - Fix some bugs
+
 > ## Update of 04/03/2021
-> Now is async!
+> - Now is async!
 
 > ## Update of 24/02/2021
-> Added debug mode
-
-> ## Update of 23/02/2021
-> Added kick listener
+> - Added debug mode
 
 # Audio Needed
 The following is the required audio type
@@ -150,17 +152,23 @@ pytgcalls.change_stream(-1001185324811, '/home/user/Laky64/annoying_dog.raw')
 > ### Warning!
 > Use this function after initializing the NodeJS core
 
-## is_playing
-Check if is playing or paused the stream
-
-Field | Type | Description
---- | --- | ---
-chat_id | Integer | Chat ID of a supergroup
+## calls
+Get list of all joined voice chat
 
 ### _Example_
 ``` python
 ...
-print(pytgcalls.is_playing(-1001185324811))
+print(pytgcalls.calls)
+...
+```
+
+## active_calls
+Get list of all playing voice chat
+
+### _Example_
+``` python
+...
+print(pytgcalls.active_calls)
 ...
 ```
 
@@ -211,7 +219,7 @@ def handler(my_id: int):
 ...
 ```
 
-## on_event_update
+## on_raw_update
 Decorator handling all information about status of calls and stream
 
 Field | Type | Description
@@ -221,7 +229,7 @@ func | Callable | Callable decorator
 ### _Example_
 ``` python
 ...
-@pytgcalls.on_event_update()
+@pytgcalls.on_raw_update()
 async def handler(update: dict):
     print(update)
 ...
@@ -278,6 +286,22 @@ func | Callable | Callable decorator
 @pytgcalls.on_custom_api()
 async def handler(request: dict):
     return {'result': 'OK'}
+...
+```
+
+## on_kicked
+Decorator handling when kicked from group
+
+Field | Type | Description
+--- | --- | ---
+func | Callable | Callable decorator
+
+### _Example_
+``` python
+...
+@pytgcalls.on_kicked()
+async def handler(chat_id: int):
+    print(chat_id)
 ...
 ```
 
