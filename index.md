@@ -9,15 +9,15 @@ image: https://avatars.githubusercontent.com/u/75855609
 > to work with Telegram group calls.
 
 # Recent changes
-> ## Update of 10/03/2021
+> ## Update of 10/03/2021 - 0.1.0 (Beta 5)
 > - Added kick listener
 > - Added new parameters!
 > - Fix some bugs
 
-> ## Update of 04/03/2021
+> ## Update of 04/03/2021 - 0.1.0 (Beta 4)
 > - Now is async!
 
-> ## Update of 24/02/2021
+> ## Update of 24/02/2021- 0.1.0 (Beta 3)
 > - Added debug mode
 
 # Audio Needed
@@ -163,7 +163,7 @@ print(pytgcalls.calls)
 ```
 
 ## active_calls
-Get list of all playing voice chat
+Get dict of all playing voice chat
 
 ### _Example_
 ``` python
