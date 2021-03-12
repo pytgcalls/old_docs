@@ -9,6 +9,11 @@ image: https://avatars.githubusercontent.com/u/75855609
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 10/03/2021 - 0.2.1
+> - Added on_closed_voice_chat listener
+> - Fix installation bug
+
+
 > ## Update of 10/03/2021 - 0.1.0 (Beta 5)
 > - Added kick listener
 > - Added new parameters!
@@ -290,6 +295,22 @@ func | Callable | Callable decorator
 ``` python
 ...
 @pytgcalls.on_kicked()
+async def handler(chat_id: int):
+    print(chat_id)
+...
+```
+
+## on_closed_voice_chat
+Decorator handling when closed voice chat
+
+Field | Type | Description
+--- | --- | ---
+func | Callable | Callable decorator
+
+### _Example_
+``` python
+...
+@pytgcalls.on_closed_voice_chat()
 async def handler(chat_id: int):
     print(chat_id)
 ...
