@@ -9,6 +9,11 @@ image: https://avatars.githubusercontent.com/u/75855609
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 14/03/2021 - 0.3.0
+> - Reduced the cpu consumption and ram (Now is supported on 2 core CPU)
+> - Now is supported infinite audio stream
+> - Added Verbose Mode and Ultra Verbose Mode
+
 > ## Update of 10/03/2021 - 0.2.1
 > - Added on_closed_voice_chat listener
 > - Fix installation bug
@@ -18,12 +23,6 @@ image: https://avatars.githubusercontent.com/u/75855609
 > - Added kick listener
 > - Added new parameters!
 > - Fix some bugs
-
-> ## Update of 04/03/2021 - 0.1.0 (Beta 4)
-> - Now is async!
-
-> ## Update of 24/02/2021- 0.1.0 (Beta 3)
-> - Added debug mode
 
 # Audio Needed
 The following is the required audio type
@@ -42,17 +41,36 @@ Class initialization
 Field | Type | Description
 --- | --- | ---
 app | pyrogram.Client | A Pyrogram client
-port | Integer | Port to run local server
-log_mode | Boolean | Debug mode
+port | Integer | Port to run local server (Optional)
+log_mode | PyLogs | Debug mode (Optional)
 
 ### _Example_
 ``` python
 ...
 app = Client(...)
-pytgcalls = PyTgCalls(app)
+pytgcalls = PyTgCalls(app, log_mode=PyLogs.verbose)
 ...
 ```
 
+## PyLogs.verbose
+Set the logging to normal mode
+
+### _Example_
+``` python
+...
+PyLogs.verbose
+...
+```
+
+## PyLogs.ultra_verbose
+Set the logging to normal mode
+
+### _Example_
+``` python
+...
+PyLogs.ultra_verbose
+...
+```
 
 ## join_group_call
 Join a group call to stream a file
