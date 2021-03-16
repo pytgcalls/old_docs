@@ -9,6 +9,14 @@ image: https://avatars.githubusercontent.com/u/75855609
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 14/03/2021 - 0.3.3
+> - Added more verbose logs
+> - Added new exception
+> - Updated to layer 125
+> - Fixed installation setup
+> - Reduced FloodWait caused by ResolveUsername
+> - Bug fix
+
 > ## Update of 14/03/2021 - 0.3.0
 > - Reduced the cpu consumption and ram (Now is supported on 2 core CPU)
 > - Now is supported infinite audio stream
@@ -18,11 +26,6 @@ image: https://avatars.githubusercontent.com/u/75855609
 > - Added on_closed_voice_chat listener
 > - Fix installation bug
 
-
-> ## Update of 10/03/2021 - 0.1.0 (Beta 5)
-> - Added kick listener
-> - Added new parameters!
-> - Fix some bugs
 
 # Audio Needed
 The following is the required audio type
@@ -80,11 +83,17 @@ Field | Type | Description
 chat_id | Integer | Chat ID of a supergroup
 file_path | String | Path of a RAW audio file
 bitrate | Integer | Audio stream bitrate (maximum amount allowed by Telegram: 48K)
+join_as | pyrogram.raw.base.InputPeer | InputPeer of join as channel or profile
 
 ### _Example_
 ``` python
 ...
-pytgcalls.join_group_call(-1001185324811, '/home/user/Laky64/annoying_dog.raw', 48000)
+pytgcalls.join_group_call(
+    -1001185324811,
+    '/home/user/Laky64/annoying_dog.raw',
+    48000,
+    pytgcalls.get_cache_peer()
+)
 ...
 ```
 > ### Warning!
@@ -202,6 +211,16 @@ Return current UserID
 ``` python
 ...
 print(pytgcalls.get_cache_id())
+...
+```
+
+## get_cache_peer
+Return current InputPeer
+
+### _Example_
+``` python
+...
+print(pytgcalls.get_cache_peer())
 ...
 ```
 
@@ -350,3 +369,9 @@ This error occurs when trying to execute is_playing without an active group call
 
 ## NEED_PYROGRAM_CLIENT
 This error occurs when trying to execute run without Pyrogram Client
+
+## JOIN_VOICE_CALL_ERROR
+This error occurs when trying to join and pyrogram error occurs
+
+## STREAM_LAG
+This error occurs when the stream is lagging
