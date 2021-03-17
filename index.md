@@ -9,7 +9,12 @@ image: https://avatars.githubusercontent.com/u/75855609
 > to work with Telegram group calls.
 
 # Recent changes
-> ## Update of 14/03/2021 - 0.3.3
+> ## Update of 17/03/2021 - 0.3.6
+> - Now join_group_call has default values
+> - Added live stream support
+> - Bug fix
+
+> ## Update of 16/03/2021 - 0.3.3
 > - Added more verbose logs
 > - Added new exception
 > - Updated to layer 125
@@ -44,8 +49,8 @@ Class initialization
 Field | Type | Description
 --- | --- | ---
 app | pyrogram.Client | A Pyrogram client
-port | Integer | Port to run local server (Optional)
-log_mode | PyLogs | Debug mode (Optional)
+port (Optional) | Integer | Port to run local server 
+log_mode (Optional) | PyLogs | Debug mode
 
 ### _Example_
 ``` python
@@ -82,8 +87,9 @@ Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
 file_path | String | Path of a RAW audio file
-bitrate | Integer | Audio stream bitrate (maximum amount allowed by Telegram: 48K)
-join_as | pyrogram.raw.base.InputPeer | InputPeer of join as channel or profile
+bitrate (Optional) | Integer | Audio stream bitrate (maximum amount allowed by Telegram: 48K)
+join_as (Optional) | pyrogram.raw.base.InputPeer | InputPeer of join as channel or profile
+stream_type (Optional) | pytgcalls.StreamType | The type of Stream
 
 ### _Example_
 ``` python
@@ -92,7 +98,8 @@ pytgcalls.join_group_call(
     -1001185324811,
     '/home/user/Laky64/annoying_dog.raw',
     48000,
-    pytgcalls.get_cache_peer()
+    pytgcalls.get_cache_peer(),
+    StreamType().local_stream,
 )
 ...
 ```
@@ -248,6 +255,26 @@ pytgcalls.run(handler)
 
 def handler(my_id: int):
    print(my_id)
+...
+```
+
+## live_stream
+Set the stream mode to live stream, use this for livestream or ffmpeg live conversion
+
+### _Example_
+``` python
+...
+StreamType().live_stream
+...
+```
+
+## local_stream
+Set the stream mode to local stream, use this for local converted file 
+
+### _Example_
+``` python
+...
+StreamType().local_stream
 ...
 ```
 
