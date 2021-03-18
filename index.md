@@ -9,6 +9,9 @@ image: https://avatars.githubusercontent.com/u/75855609
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 18/03/2021 - 0.3.7
+> - Fixed live stream and long video
+
 > ## Update of 17/03/2021 - 0.3.6
 > - Now join_group_call has default values
 > - Added live stream support
@@ -26,11 +29,6 @@ image: https://avatars.githubusercontent.com/u/75855609
 > - Reduced the cpu consumption and ram (Now is supported on 2 core CPU)
 > - Now is supported infinite audio stream
 > - Added Verbose Mode and Ultra Verbose Mode
-
-> ## Update of 10/03/2021 - 0.2.1
-> - Added on_closed_voice_chat listener
-> - Fix installation bug
-
 
 # Audio Needed
 The following is the required audio type
