@@ -398,5 +398,11 @@ This error occurs when trying to execute run without Pyrogram Client
 ## JOIN_VOICE_CALL_ERROR
 This error occurs when trying to join and pyrogram error occurs
 
-## STREAM_LAG
-This error occurs when the stream is lagging
+## INVALID_STREAM_MODE
+This error occurs when trying to set an invalid StreamType
+
+## FILE_NOT_FOUND
+This error occurs when trying play not existing file
+
+## INVALID_FILE_STREAM
+This error occurs when trying play 0 byte length file
