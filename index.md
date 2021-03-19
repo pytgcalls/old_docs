@@ -1,8 +1,3 @@
----
-title: PyTgCalls documentation
-description: Async client API for the Telegram Group Calls
-image: https://avatars.githubusercontent.com/u/75855609
----
 # PyTgCalls API
 > PyTgCalls is based on PyServerCall, [TgCallsJS](https://github.com/tgcallsjs/tgcalls),
 > [SocketIO](https://socket.io/) and [WebRTC](https://webrtc.org/)
