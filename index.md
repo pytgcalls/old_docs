@@ -4,7 +4,7 @@
 > to work with Telegram group calls.
 
 # Recent changes
-> ## Update of 18/03/2021 - 0.4.1
+> ## Update of 21/03/2021 - 0.4.1
 > - Customizable cache time of get_full_chat
 > - Updated all libs to the latest version
 
