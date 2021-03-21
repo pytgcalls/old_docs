@@ -4,6 +4,10 @@
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 18/03/2021 - 0.4.1
+> - Customizable cache time of get_full_chat
+> - Updated all libs to the latest version
+
 > ## Update of 18/03/2021 - 0.3.7
 > - Fixed live stream and long video
 
@@ -19,11 +23,6 @@
 > - Fixed installation setup
 > - Reduced FloodWait caused by ResolveUsername
 > - Bug fix
-
-> ## Update of 14/03/2021 - 0.3.0
-> - Reduced the cpu consumption and ram (Now is supported on 2 core CPU)
-> - Now is supported infinite audio stream
-> - Added Verbose Mode and Ultra Verbose Mode
 
 # Audio Needed
 The following is the required audio type
@@ -44,6 +43,7 @@ Field | Type | Description
 app | pyrogram.Client | A Pyrogram client
 port (Optional) | Integer | Port to run local server 
 log_mode (Optional) | PyLogs | Debug mode
+flood_wait_cache (Optional) | Integer | Cache anti-floodwait duration(In seconds)
 
 ### _Example_
 ``` python
