@@ -4,6 +4,9 @@
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 25/03/2021 - 0.4.2
+> - Added support for JoinGroupCall with invite hash
+
 > ## Update of 21/03/2021 - 0.4.1
 > - Customizable cache time of get_full_chat
 > - Updated all libs to the latest version
@@ -14,14 +17,6 @@
 > ## Update of 17/03/2021 - 0.3.6
 > - Now join_group_call has default values
 > - Added live stream support
-> - Bug fix
-
-> ## Update of 16/03/2021 - 0.3.3
-> - Added more verbose logs
-> - Added new exception
-> - Updated to layer 125
-> - Fixed installation setup
-> - Reduced FloodWait caused by ResolveUsername
 > - Bug fix
 
 # Audio Needed
@@ -73,6 +68,7 @@ PyLogs.ultra_verbose
 ...
 ```
 
+
 ## join_group_call
 Join a group call to stream a file
 
@@ -80,6 +76,7 @@ Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
 file_path | String | Path of a RAW audio file
+invite_hash (Optional) | String | Telegram invite voice chat hash
 bitrate (Optional) | Integer | Audio stream bitrate (maximum amount allowed by Telegram: 48K)
 join_as (Optional) | pyrogram.raw.base.InputPeer | InputPeer of join as channel or profile
 stream_type (Optional) | pytgcalls.StreamType | The type of Stream
