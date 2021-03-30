@@ -4,6 +4,10 @@
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 25/03/2021 - 0.4.6
+> - Added type pulse_stream beta 
+> - Added the possibility to get max voice chat can start your server
+
 > ## Update of 25/03/2021 - 0.4.2
 > - Added support for JoinGroupCall with invite hash
 
@@ -14,10 +18,6 @@
 > ## Update of 18/03/2021 - 0.3.7
 > - Fixed live stream and long video
 
-> ## Update of 17/03/2021 - 0.3.6
-> - Now join_group_call has default values
-> - Added live stream support
-> - Bug fix
 
 # Audio Needed
 The following is the required audio type
@@ -267,6 +267,52 @@ Set the stream mode to local stream, use this for local converted file
 StreamType().local_stream
 ...
 ```
+
+## beta_pulse_stream
+Set the stream mode to pulse stream, this mode is under testing,
+but is very different between the other streaming mode
+<b>(Please DO NOT use this mode in production, it is an early test version.)</b>
+
+### Example of other streaming mode
+
+111011100110100100<br>
+111011100110100100<br>
+111011100110100100<br>
+111011100110100100<br>
+111011100110100100<br>
+111011100110100100<br>
+
+
+### Pulse Stream Mode:
+111011100110100100<br>
+111011100110100100<br>
+111011100110100100<br>
+
+111011100110100100<br>
+111011100110100100<br>
+111011100110100100<br>
+
+### Supported streams:
+- Live Streams
+- Local Stream
+
+### _Example_
+``` python
+...
+StreamType().beta_pulse_stream
+...
+```
+
+## get_max_voice_chat
+Get the max voice chat can start your server
+
+### _Example_
+``` python
+...
+PyTgCalls.get_max_voice_chat()
+...
+```
+
 
 ## on_raw_update
 Decorator handling all information about status of calls and stream
