@@ -4,7 +4,7 @@
 > to work with Telegram group calls.
 
 # Recent changes
-> ## Update of 25/03/2021 - 0.4.6
+> ## Update of 30/03/2021 - 0.4.6
 > - Added type pulse_stream beta 
 > - Added the possibility to get max voice chat can start your server
 
@@ -305,6 +305,10 @@ StreamType().beta_pulse_stream
 
 ## get_max_voice_chat
 Get the max voice chat can start your server
+
+Field | Type | Description
+--- | --- | ---
+consumption | Integer | Estimated Cpu Consumption(Optional)
 
 ### _Example_
 ``` python
