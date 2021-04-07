@@ -382,7 +382,7 @@ func | Callable | Callable decorator
 ### _Example_
 ``` python
 ...
-@pytgcalls.on_custom_api()
+@pytgcalls.on_update_custom_api()
 async def handler(request: dict):
     return {'result': 'OK'}
 ...
