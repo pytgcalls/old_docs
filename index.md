@@ -4,6 +4,13 @@
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 10/08/2021 - 0.6.0
+> - Added multiple instance support
+> - Added possibility to call functions without waiting for NodeJS Core
+> - Added remote check version available
+> - Security Fix
+> - Code Cleaned
+
 > ## Update of 30/03/2021 - 0.4.6
 > - Added type pulse_stream beta 
 > - Added the possibility to get max voice chat can start your server
@@ -14,9 +21,6 @@
 > ## Update of 21/03/2021 - 0.4.1
 > - Customizable cache time of get_full_chat
 > - Updated all libs to the latest version
-
-> ## Update of 18/03/2021 - 0.3.7
-> - Fixed live stream and long video
 
 
 # Audio Needed
@@ -93,8 +97,6 @@ pytgcalls.join_group_call(
 )
 ...
 ```
-> ### Warning!
-> Use this function after initializing the NodeJS core
 
 ## leave_group_call
 Leave a group call
@@ -109,8 +111,6 @@ chat_id | Integer | Chat ID of a supergroup
 pytgcalls.leave_group_call(-1001185324811)
 ...
 ```
-> ### Warning!
-> Use this function after initializing the NodeJS core
 
 ## change_volume_call
 Set the audio stream volume
@@ -128,7 +128,7 @@ pytgcalls.change_volume_call(-1001185324811, 100)
 ```
 
 > ### Warning!
-> Use this function after initializing the NodeJS core and this function have some bugs
+> This function have some Telegram bugs
 
 ## pause_stream
 Pause the audio stream 
@@ -144,9 +144,6 @@ pytgcalls.pause_stream(-1001185324811)
 ...
 ```
 
-> ### Warning!
-> Use this function after initializing the NodeJS core
-
 ## resume_stream
 Resume the audio stream
 
@@ -160,9 +157,6 @@ chat_id | Integer | Chat ID of a supergroup
 pytgcalls.resume_stream(-1001185324811)
 ...
 ```
-
-> ### Warning!
-> Use this function after initializing the NodeJS core
 
 ## change_stream
 Change audio stream without reconnection
@@ -178,8 +172,6 @@ file_path | String | Path of a RAW audio file
 pytgcalls.change_stream(-1001185324811, '/home/user/Laky64/annoying_dog.raw')
 ...
 ```
-> ### Warning!
-> Use this function after initializing the NodeJS core
 
 ## calls
 Get list of all joined voice chat
@@ -268,10 +260,9 @@ StreamType().local_stream
 ...
 ```
 
-## beta_pulse_stream
+## pulse_stream
 Set the stream mode to pulse stream, this mode is under testing,
 but is very different between the other streaming mode
-<b>(Please DO NOT use this mode in production, it is an early test version.)</b>
 
 ### Example of other streaming mode
 
@@ -299,7 +290,7 @@ but is very different between the other streaming mode
 ### _Example_
 ``` python
 ...
-StreamType().beta_pulse_stream
+StreamType().pulse_stream
 ...
 ```
 
@@ -316,7 +307,6 @@ consumption | Integer | Estimated Cpu Consumption(Optional)
 PyTgCalls.get_max_voice_chat()
 ...
 ```
-
 
 ## on_raw_update
 Decorator handling all information about status of calls and stream
@@ -382,11 +372,16 @@ func | Callable | Callable decorator
 ### _Example_
 ``` python
 ...
-@pytgcalls.on_update_custom_api()
+custom_api = CustomApi()
+...
+@custom_api.on_update_custom_api()
 async def handler(request: dict):
     return {'result': 'OK'}
 ...
 ```
+> ### More Information
+> There is a more detailed example about [how to use it]
+
 
 ## on_kicked
 Decorator handling when kicked from group
@@ -422,7 +417,7 @@ async def handler(chat_id: int):
 
 # Exceptions
 
-## JS_CORE_NOT_RUNNING
+## JS_CORE_NOT_RUNNING (DEPRECATED)
 This error occurs when trying to execute a function before JS Core starts
 
 ## PYROGRAM_CLIENT_IS_NOT_RUNNING
@@ -448,3 +443,5 @@ This error occurs when trying play not existing file
 
 ## INVALID_FILE_STREAM
 This error occurs when trying play 0 byte length file
+
+[how to use it]: https://github.com/pytgcalls/pytgcalls/tree/master/example/custom_api
