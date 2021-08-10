@@ -8,6 +8,7 @@
 > - Added multiple instance support
 > - Added possibility to call functions without waiting for NodeJS Core
 > - Added remote check version available
+> - CustomAPI 2.0
 > - Security Fix
 > - Code Cleaned
 
@@ -261,8 +262,8 @@ StreamType().local_stream
 ```
 
 ## pulse_stream
-Set the stream mode to pulse stream, this mode is under testing,
-but is very different between the other streaming mode
+Set the stream mode to pulse stream but is very 
+different between the other streaming mode
 
 ### Example of other streaming mode
 
@@ -372,7 +373,7 @@ func | Callable | Callable decorator
 ### _Example_
 ``` python
 ...
-custom_api = CustomApi()
+custom_api = CustomAPI()
 ...
 @custom_api.on_update_custom_api()
 async def handler(request: dict):
