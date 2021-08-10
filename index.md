@@ -4,6 +4,10 @@
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 10/08/2021 - 0.6.1
+> - Added self to handlers
+> - Some fix
+
 > ## Update of 10/08/2021 - 0.6.0
 > - Added multiple instance support
 > - Added possibility to call functions without waiting for NodeJS Core
@@ -320,7 +324,7 @@ func | Callable | Callable decorator
 ``` python
 ...
 @pytgcalls.on_raw_update()
-async def handler(update: dict):
+async def handler(client: PyTgCalls, update: dict):
     print(update)
 ...
 ```
@@ -336,7 +340,7 @@ func | Callable | Callable decorator
 ``` python
 ...
 @pytgcalls.on_stream_end()
-async def handler(chat_id: int):
+async def handler(client: PyTgCalls, chat_id: int):
     print(chat_id)
 ...
 ```
@@ -352,7 +356,7 @@ func | Callable | Callable decorator
 ``` python
 ...
 @pytgcalls.on_group_call_invite()
-async def handler(client: Client, update: MessageService):
+async def handler(client: PyTgCalls, client: Client, update: MessageService):
     print(update)
 ...
 ```
@@ -395,7 +399,7 @@ func | Callable | Callable decorator
 ``` python
 ...
 @pytgcalls.on_kicked()
-async def handler(chat_id: int):
+async def handler(client: PyTgCalls, chat_id: int):
     print(chat_id)
 ...
 ```
@@ -411,7 +415,7 @@ func | Callable | Callable decorator
 ``` python
 ...
 @pytgcalls.on_closed_voice_chat()
-async def handler(chat_id: int):
+async def handler(client: PyTgCalls, chat_id: int):
     print(chat_id)
 ...
 ```
