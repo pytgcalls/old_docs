@@ -44,17 +44,15 @@ Class initialization
 
 Field | Type | Description
 --- | --- | ---
-app | pyrogram.Client | A Pyrogram client
+client | pyrogram.Client | A Pyrogram client
 port (Optional) | Integer | Port to run local server 
 log_mode (Optional) | PyLogs | Debug mode
 flood_wait_cache (Optional) | Integer | Cache anti-floodwait duration(In seconds)
 
 ### _Example_
 ``` python
-...
-app = Client(...)
-pytgcalls = PyTgCalls(app, log_mode=PyLogs.verbose)
-...
+client = Client("My_Session")
+pytgcalls = PyTgCalls(client, log_mode=PyLogs.verbose)
 ```
 
 ## PyLogs.verbose
@@ -62,9 +60,7 @@ Set the logging to normal mode
 
 ### _Example_
 ``` python
-...
 PyLogs.verbose
-...
 ```
 
 ## PyLogs.ultra_verbose
@@ -72,9 +68,7 @@ Set the logging to normal mode
 
 ### _Example_
 ``` python
-...
 PyLogs.ultra_verbose
-...
 ```
 
 
@@ -92,15 +86,13 @@ stream_type (Optional) | pytgcalls.StreamType | The type of Stream
 
 ### _Example_
 ``` python
-...
 pytgcalls.join_group_call(
-    -1001185324811,
-    '/home/user/Laky64/annoying_dog.raw',
+    -1001234567890,
+    '/home/PyTgCalls/PyTgCalls/input.raw',
     48000,
     pytgcalls.get_cache_peer(),
-    StreamType().local_stream,
+    StreamType().pulse_stream,
 )
-...
 ```
 
 ## leave_group_call
@@ -112,9 +104,7 @@ chat_id | Integer | Chat ID of a supergroup
 
 ### _Example_
 ``` python
-...
-pytgcalls.leave_group_call(-1001185324811)
-...
+pytgcalls.leave_group_call(-1001234567890)
 ```
 
 ## change_volume_call
@@ -127,9 +117,7 @@ volume | Integer | Volume of stream (0-200)
 
 ### _Example_
 ``` python
-...
-pytgcalls.change_volume_call(-1001185324811, 100)
-...
+pytgcalls.change_volume_call(-1001234567890, 100)
 ```
 
 > ### Warning!
@@ -144,9 +132,7 @@ chat_id | Integer | Chat ID of a supergroup
 
 ### _Example_
 ``` python
-...
-pytgcalls.pause_stream(-1001185324811)
-...
+pytgcalls.pause_stream(-1001234567890)
 ```
 
 ## resume_stream
@@ -158,9 +144,7 @@ chat_id | Integer | Chat ID of a supergroup
 
 ### _Example_
 ``` python
-...
-pytgcalls.resume_stream(-1001185324811)
-...
+pytgcalls.resume_stream(-1001234567890)
 ```
 
 ## change_stream
@@ -173,9 +157,7 @@ file_path | String | Path of a RAW audio file
 
 ### _Example_
 ``` python
-...
-pytgcalls.change_stream(-1001185324811, '/home/user/Laky64/annoying_dog.raw')
-...
+pytgcalls.change_stream(-1001234567890, '/home/PyTgCalls/PyTgCalls/input.raw')
 ```
 
 ## calls
@@ -183,9 +165,7 @@ Get list of all joined voice chat
 
 ### _Example_
 ``` python
-...
 print(pytgcalls.calls)
-...
 ```
 
 ## active_calls
@@ -193,9 +173,7 @@ Get dict of all playing voice chat
 
 ### _Example_
 ``` python
-...
 print(pytgcalls.active_calls)
-...
 ```
 
 ## get_cache_id
@@ -203,9 +181,7 @@ Return current UserID
 
 ### _Example_
 ``` python
-...
 print(pytgcalls.get_cache_id())
-...
 ```
 
 ## get_cache_peer
@@ -213,9 +189,7 @@ Return current InputPeer
 
 ### _Example_
 ``` python
-...
 print(pytgcalls.get_cache_peer())
-...
 ```
 
 ## get_port_server
@@ -223,9 +197,7 @@ Get the current internal local port
 
 ### _Example_
 ``` python
-...
 print(pytgcalls.get_port_server())
-...
 ```
 
 ## run
@@ -237,12 +209,10 @@ before_start_callable | Callable | Callable decorator
 
 ### _Example_
 ``` python
-...
 pytgcalls.run(handler)
 
 def handler(my_id: int):
    print(my_id)
-...
 ```
 
 ## live_stream
@@ -250,9 +220,7 @@ Set the stream mode to live stream, use this for livestream or ffmpeg live conve
 
 ### _Example_
 ``` python
-...
 StreamType().live_stream
-...
 ```
 
 ## local_stream
@@ -260,9 +228,7 @@ Set the stream mode to local stream, use this for local converted file
 
 ### _Example_
 ``` python
-...
 StreamType().local_stream
-...
 ```
 
 ## pulse_stream
@@ -294,9 +260,7 @@ different between the other streaming mode
 
 ### _Example_
 ``` python
-...
 StreamType().pulse_stream
-...
 ```
 
 ## get_max_voice_chat
@@ -308,9 +272,7 @@ consumption | Integer | Estimated Cpu Consumption(Optional)
 
 ### _Example_
 ``` python
-...
 PyTgCalls.get_max_voice_chat()
-...
 ```
 
 ## on_raw_update
@@ -322,11 +284,9 @@ func | Callable | Callable decorator
 
 ### _Example_
 ``` python
-...
 @pytgcalls.on_raw_update()
 async def handler(client: PyTgCalls, update: dict):
     print(update)
-...
 ```
 
 ## on_stream_end
@@ -338,11 +298,9 @@ func | Callable | Callable decorator
 
 ### _Example_
 ``` python
-...
 @pytgcalls.on_stream_end()
 async def handler(client: PyTgCalls, chat_id: int):
     print(chat_id)
-...
 ```
 
 ## on_group_call_invite
@@ -354,11 +312,9 @@ func | Callable | Callable decorator
 
 ### _Example_
 ``` python
-...
 @pytgcalls.on_group_call_invite()
 async def handler(client: PyTgCalls, client: Client, update: MessageService):
     print(update)
-...
 ```
 
 ## on_custom_api 
@@ -376,13 +332,18 @@ func | Callable | Callable decorator
 
 ### _Example_
 ``` python
-...
 custom_api = CustomAPI()
-...
 @custom_api.on_update_custom_api()
 async def handler(request: dict):
-    return {'result': 'OK'}
-...
+    if "action" in request:
+        if request["action"] == "JOIN_CALL":
+            call.join_group_call(
+                chat_id=request["CHAT_ID"],
+                file_path=request["INPUT_FILE"],
+                bitrate=48000,
+                stream_type=StreamType().pulse_stream,
+            )
+    return request
 ```
 > ### More Information
 > There is a more detailed example about [how to use it]
@@ -397,11 +358,9 @@ func | Callable | Callable decorator
 
 ### _Example_
 ``` python
-...
 @pytgcalls.on_kicked()
 async def handler(client: PyTgCalls, chat_id: int):
     print(chat_id)
-...
 ```
 
 ## on_closed_voice_chat
@@ -413,11 +372,9 @@ func | Callable | Callable decorator
 
 ### _Example_
 ``` python
-...
 @pytgcalls.on_closed_voice_chat()
 async def handler(client: PyTgCalls, chat_id: int):
     print(chat_id)
-...
 ```
 
 # Exceptions
