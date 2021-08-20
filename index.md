@@ -1,9 +1,22 @@
 # PyTgCalls API
-> PyTgCalls is based on PyServerCall, [TgCallsJS](https://github.com/tgcallsjs/tgcalls),
-> [SocketIO](https://socket.io/) and [WebRTC](https://webrtc.org/)
+> PyTgCalls is based on PyServerCall and [TgCallsJS](https://github.com/tgcallsjs/tgcalls)
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 20/08/2021 - 0.7.0
+> - PyTgCalls Re-Base
+> - Fully Async
+> - Removed internal server amd changed with stdin and stdout
+> - Renewed CustomAPI to 2.1
+> - RawUpdate Renewed with Python Object Update
+> - Added Custom Exceptions
+> - .run() now is .start()
+> - Now the logs are all passed to Logging
+> - Added if the stream is deleted, the userbot will exit the voice call by printing an error in RawUpdate
+> - Windows Support
+> - Aarch64 Support
+> - Bug Fix
+
 > ## Update of 10/08/2021 - 0.6.1
 > - Added self to handlers
 > - Some fix
@@ -23,9 +36,6 @@
 > ## Update of 25/03/2021 - 0.4.2
 > - Added support for JoinGroupCall with invite hash
 
-> ## Update of 21/03/2021 - 0.4.1
-> - Customizable cache time of get_full_chat
-> - Updated all libs to the latest version
 
 
 # Audio Needed
@@ -45,38 +55,15 @@ Class initialization
 Field | Type | Description
 --- | --- | ---
 app | pyrogram.Client | A Pyrogram client
-port (Optional) | Integer | Port to run local server 
-log_mode (Optional) | PyLogs | Debug mode
-flood_wait_cache (Optional) | Integer | Cache anti-floodwait duration(In seconds)
+cache_duration (Optional) | Integer | The duration of get_full_chat cache (In seconds)
 
 ### _Example_
 ``` python
 ...
 app = Client(...)
-pytgcalls = PyTgCalls(app, log_mode=PyLogs.verbose)
+pytgcalls = PyTgCalls(app)
 ...
 ```
-
-## PyLogs.verbose
-Set the logging to normal mode
-
-### _Example_
-``` python
-...
-PyLogs.verbose
-...
-```
-
-## PyLogs.ultra_verbose
-Set the logging to normal mode
-
-### _Example_
-``` python
-...
-PyLogs.ultra_verbose
-...
-```
-
 
 ## join_group_call
 Join a group call to stream a file
@@ -93,6 +80,7 @@ stream_type (Optional) | pytgcalls.StreamType | The type of Stream
 ### _Example_
 ``` python
 ...
+# AVAILABLE ASYNC AND SYNC
 pytgcalls.join_group_call(
     -1001185324811,
     '/home/user/Laky64/annoying_dog.raw',
@@ -113,6 +101,7 @@ chat_id | Integer | Chat ID of a supergroup
 ### _Example_
 ``` python
 ...
+# AVAILABLE ASYNC AND SYNC
 pytgcalls.leave_group_call(-1001185324811)
 ...
 ```
@@ -128,6 +117,7 @@ volume | Integer | Volume of stream (0-200)
 ### _Example_
 ``` python
 ...
+# AVAILABLE ASYNC AND SYNC
 pytgcalls.change_volume_call(-1001185324811, 100)
 ...
 ```
@@ -145,6 +135,7 @@ chat_id | Integer | Chat ID of a supergroup
 ### _Example_
 ``` python
 ...
+# AVAILABLE ASYNC AND SYNC
 pytgcalls.pause_stream(-1001185324811)
 ...
 ```
@@ -159,6 +150,7 @@ chat_id | Integer | Chat ID of a supergroup
 ### _Example_
 ``` python
 ...
+# AVAILABLE ASYNC AND SYNC
 pytgcalls.resume_stream(-1001185324811)
 ...
 ```
@@ -174,12 +166,13 @@ file_path | String | Path of a RAW audio file
 ### _Example_
 ``` python
 ...
+# AVAILABLE ASYNC AND SYNC
 pytgcalls.change_stream(-1001185324811, '/home/user/Laky64/annoying_dog.raw')
 ...
 ```
 
 ## calls
-Get list of all joined voice chat
+Get GroupCall list of all joined voice chat
 
 ### _Example_
 ``` python
@@ -189,12 +182,40 @@ print(pytgcalls.calls)
 ```
 
 ## active_calls
-Get dict of all playing voice chat
+Get GroupCall list of all playing voice chat
 
 ### _Example_
 ``` python
 ...
 print(pytgcalls.active_calls)
+...
+```
+
+## get_active_call
+Get GroupCall of playing voice chat
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+### _Example_
+``` python
+...
+print(pytgcalls.get_active_call(-1001185324811))
+...
+```
+
+## get_call
+Get GroupCall of joined voice chat
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+### _Example_
+``` python
+...
+print(pytgcalls.get_call(-1001185324811))
 ...
 ```
 
@@ -218,30 +239,14 @@ print(pytgcalls.get_cache_peer())
 ...
 ```
 
-## get_port_server
-Get the current internal local port
-
-### _Example_
-``` python
-...
-print(pytgcalls.get_port_server())
-...
-```
-
-## run
+## start
 Start PyTgCalls with the provided Pyrogram Client
 
-Field | Type | Description
---- | --- | ---
-before_start_callable | Callable | Callable decorator
-
 ### _Example_
 ``` python
 ...
-pytgcalls.run(handler)
-
-def handler(my_id: int):
-   print(my_id)
+# AVAILABLE ASYNC AND SYNC
+pytgcalls.start()
 ...
 ```
 
@@ -323,8 +328,10 @@ func | Callable | Callable decorator
 ### _Example_
 ``` python
 ...
+from pytgcalls.types import Update
+...
 @pytgcalls.on_raw_update()
-async def handler(client: PyTgCalls, update: dict):
+async def handler(client: PyTgCalls, update: Update):
     print(update)
 ...
 ```
@@ -356,7 +363,7 @@ func | Callable | Callable decorator
 ``` python
 ...
 @pytgcalls.on_group_call_invite()
-async def handler(client: PyTgCalls, client: Client, update: MessageService):
+async def handler(client: PyTgCalls, update: MessageService):
     print(update)
 ...
 ```
@@ -372,17 +379,18 @@ _Need Post request!_
 
 Field | Type | Description
 --- | --- | ---
-func | Callable | Callable decorator
+port | Integer | CustomAPI server port
 
 ### _Example_
 ``` python
 ...
-custom_api = CustomAPI()
+custom_api = CustomApi()
 ...
 @custom_api.on_update_custom_api()
 async def handler(request: dict):
     return {'result': 'OK'}
 ...
+custom_api.run()
 ```
 > ### More Information
 > There is a more detailed example about [how to use it]
@@ -420,33 +428,127 @@ async def handler(client: PyTgCalls, chat_id: int):
 ...
 ```
 
+# Types
+## types.Update
+A raw update from on_raw_update
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+## types.groups.ErrorDuringJoin
+Error during joining to voice chat from on_raw_update
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+## types.groups.JoinedVoiceChat
+Joined to voice chat from on_raw_update
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+## types.groups.LeftVoiceChat
+Left to voice chat from on_raw_update
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+## types.stream.ChangedStream
+Changed stream from on_raw_update
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+## types.stream.ChangedStream
+Changed stream from on_raw_update
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+## types.stream.PausedStream
+Paused stream from on_raw_update
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+## types.stream.ResumedStream
+Paused stream from on_raw_update
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+## types.stream.StreamDeleted
+Deleted stream during playing from on_raw_update
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+## types.groups.GroupCall
+GroupCall from active_calls, calls, get_active_call and get_call
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+status | types.groups.Status | Status of streaming
+
+## types.groups.Status
+Status from types.groups.GroupCall
+
+## types.groups.PlayingStream
+Status from types.groups.GroupCall
+
+## types.groups.PausedStream
+Status from types.groups.GroupCall
+
+## types.groups.NotPlayingStream
+Status from types.groups.GroupCall
+
+
 # Exceptions
 
-## JS_CORE_NOT_RUNNING (DEPRECATED)
-This error occurs when trying to execute a function before JS Core starts
+## exceptions.NodeJSNotInstalled
+Node.js isn't installed, raised from start
 
-## PYROGRAM_CLIENT_IS_NOT_RUNNING
-This error occurs when trying to execute a function without initializing Pyrogram Client
+## exceptions.TooOldNodeJSVersion
+Node.js version is too old, raised from start
 
-## JOIN_ERROR
-This error occurs when trying to execute a join_group_call without active group call
+## exceptions.TooOldPyrogramVersion
+Pyrogram version is too old, raised from start
 
-## NOT_IN_GROUP
-This error occurs when trying to execute is_playing without an active group call
+## exceptions.PyTgCallsAlreadyRunning
+PyTgCalls client is already running, raised from start
 
-## NEED_PYROGRAM_CLIENT
-This error occurs when trying to execute run without Pyrogram Client
+## exceptions.InvalidStreamMode
+The stream mode is invalid, raised from change_stream and join_group_call
 
-## JOIN_VOICE_CALL_ERROR
-This error occurs when trying to join and pyrogram error occurs
+## exceptions.PyrogramNotSet
+Pyrogram client not set, raised from join_group_call, leave_group_call, change_volume_call, change_stream, pause_stream, resume_stream
 
-## INVALID_STREAM_MODE
-This error occurs when trying to set an invalid StreamType
+## exceptions.NodeJSNotRunning
+NodeJS core not running, do start before call this methods, raised from join_group_call, leave_group_call, change_volume_call, change_stream, pause_stream, resume_stream
 
-## FILE_NOT_FOUND
-This error occurs when trying play not existing file
+## exceptions.NoActiveGroupCall
+No active group call found, raised from join_group_call, leave_group_call, change_volume_call
 
-## INVALID_FILE_STREAM
-This error occurs when trying play 0 byte length file
+## exceptions.WaitPreviousPingRequest
+Wait previous ping request before new request, raised from ping
+
+## exceptions.TooManyCustomApiDecorators
+Too Many Custom Api Decorators, raised from on_update_custom_api
+
+## exceptions.TooManyCustomApiDecorators
+Too Many Custom Api Decorators, raised from on_update_custom_api
+
+## exceptions.GroupCallNotFound
+Group call not found, raised from get_active_call and get_call
 
 [how to use it]: https://github.com/pytgcalls/pytgcalls/tree/master/example/custom_api
