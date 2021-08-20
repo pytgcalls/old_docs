@@ -6,7 +6,7 @@
 > ## Update of 20/08/2021 - 0.7.0
 > - PyTgCalls Re-Base
 > - Fully Async
-> - Removed internal server amd changed with stdin and stdout
+> - Removed internal server and changed with stdin and stdout
 > - Renewed CustomAPI to 2.1
 > - RawUpdate Renewed with Python Object Update
 > - Added Custom Exceptions
