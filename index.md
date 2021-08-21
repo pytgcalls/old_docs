@@ -250,6 +250,16 @@ pytgcalls.start()
 ...
 ```
 
+## is_connected
+Check if running py-tgcalls Client
+
+### _Example_
+``` python
+...
+pytgcalls.is_connected
+...
+```
+
 ## live_stream
 Set the stream mode to live stream, use this for livestream or ffmpeg live conversion
 
