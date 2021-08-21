@@ -6,15 +6,16 @@
 > ## Update of 20/08/2021 - 0.7.0
 > - PyTgCalls Re-Base
 > - Fully Async
-> - Removed internal server and changed with stdin and stdout
-> - Renewed CustomAPI to 2.1
-> - RawUpdate Renewed with Python Object Update
-> - Added Custom Exceptions
-> - .run() now is .start()
-> - Now the logs are all passed to Logging
+> - Removed internal server and replaced with stdin and stdout
+> - CustomAPI renewed to 2.1
+> - RawUpdate renewed with PyTgCalls Object Update
+> - Added custom exceptions
+> - .run() is now .start()
+> - Now the logs have all gone to Logging
 > - Added if the stream is deleted, the userbot will exit the voice call by printing an error in RawUpdate
 > - Windows Support
-> - Aarch64 Support
+> - macOS support
+> - Linux Arm64 support
 > - Bug Fix
 
 > ## Update of 10/08/2021 - 0.6.1
