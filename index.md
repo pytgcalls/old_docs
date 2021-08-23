@@ -3,6 +3,10 @@
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 23/08/2021 - 0.7.2
+> - Added on_left (Called when your userbot left the group)
+> - Some bugs fix
+
 > ## Update of 20/08/2021 - 0.7.0
 > - PyTgCalls Re-Base
 > - Fully Async
@@ -418,6 +422,22 @@ func | Callable | Callable decorator
 ``` python
 ...
 @pytgcalls.on_kicked()
+async def handler(client: PyTgCalls, chat_id: int):
+    print(chat_id)
+...
+```
+
+## on_left
+Decorator handling when left the group
+
+Field | Type | Description
+--- | --- | ---
+func | Callable | Callable decorator
+
+### _Example_
+``` python
+...
+@pytgcalls.on_left()
 async def handler(client: PyTgCalls, chat_id: int):
     print(chat_id)
 ...
