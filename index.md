@@ -404,7 +404,7 @@ custom_api = CustomApi()
 async def handler(request: dict):
     return {'result': 'OK'}
 ...
-custom_api.run()
+custom_api.start()
 ```
 > ### More Information
 > There is a more detailed example about [how to use it]
