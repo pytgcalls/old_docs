@@ -3,6 +3,12 @@
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Update of 23/08/2021 - 0.7.3
+> - Custom Api now is Async!
+> - Fixed Async Lock problems
+> - Now resume_stream and pause_stream return the result of operation with bool
+> - JS code cleaned
+
 > ## Update of 23/08/2021 - 0.7.2
 > - Added on_left (Called when your userbot left the group)
 > - Some bugs fix
@@ -33,13 +39,6 @@
 > - CustomAPI 2.0
 > - Security Fix
 > - Code Cleaned
-
-> ## Update of 30/03/2021 - 0.4.6
-> - Added type pulse_stream beta 
-> - Added the possibility to get max voice chat can start your server
-
-> ## Update of 25/03/2021 - 0.4.2
-> - Added support for JoinGroupCall with invite hash
 
 
 
