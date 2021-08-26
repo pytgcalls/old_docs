@@ -3,7 +3,7 @@
 > to work with Telegram group calls.
 
 # Recent changes
-> ## Update of 23/08/2021 - 0.7.3
+> ## Update of 26/08/2021 - 0.7.3
 > - Custom Api now is Async!
 > - Fixed Async Lock problems
 > - Now resume_stream and pause_stream return the result of operation with bool
