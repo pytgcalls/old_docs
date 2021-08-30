@@ -3,6 +3,11 @@
 > to work with Telegram group calls.
 
 # Recent changes
+> ## Working in Progress - 0.8.0b1
+> - Fixed AntiFlood cache not working
+> - Added Telethon Support
+> - Added support for join in groups and channel
+
 > ## Update of 26/08/2021 - 0.7.3
 > - Custom Api now is Async!
 > - Fixed Async Lock problems
@@ -58,7 +63,7 @@ Class initialization
 
 Field | Type | Description
 --- | --- | ---
-app | pyrogram.Client | A Pyrogram client
+app | pyrogram.Client or telethon.TelegramClient | A MtProto client
 cache_duration (Optional) | Integer | The duration of get_full_chat cache (In seconds)
 
 ### _Example_
@@ -78,7 +83,7 @@ chat_id | Integer | Chat ID of a supergroup
 file_path | String | Path of a RAW audio file
 invite_hash (Optional) | String | Telegram invite voice chat hash
 bitrate (Optional) | Integer | Audio stream bitrate (maximum amount allowed by Telegram: 48K)
-join_as (Optional) | pyrogram.raw.base.InputPeer | InputPeer of join as channel or profile
+join_as (Optional) | pyrogram.raw.base.InputPeer or telethon.tl.types.InputTypePeer | InputPeer of join as channel or profile
 stream_type (Optional) | pytgcalls.StreamType | The type of Stream
 
 ### _Example_
@@ -127,7 +132,7 @@ pytgcalls.change_volume_call(-1001185324811, 100)
 ```
 
 > ### Warning!
-> This function have some Telegram bugs
+> This function has some Telegram bugs
 
 ## pause_stream
 Pause the audio stream 
@@ -244,7 +249,7 @@ print(pytgcalls.get_cache_peer())
 ```
 
 ## start
-Start PyTgCalls with the provided Pyrogram Client
+Start PyTgCalls with the provided MtProto Client
 
 ### _Example_
 ``` python
@@ -367,7 +372,7 @@ async def handler(client: PyTgCalls, chat_id: int):
 ```
 
 ## on_group_call_invite
-Decorator handling when receive invite to Group Call
+Decorator handling when receiving an invitation to the group call
 
 Field | Type | Description
 --- | --- | ---
@@ -554,17 +559,23 @@ Node.js version is too old, raised from start
 ## exceptions.TooOldPyrogramVersion
 Pyrogram version is too old, raised from start
 
+## exceptions.TooOldTelethonVersion
+Telethon version is too old, raised from start
+
+## exceptions.InvalidMtProtoClient
+You set an invalid MtProto client
+
 ## exceptions.PyTgCallsAlreadyRunning
 PyTgCalls client is already running, raised from start
 
 ## exceptions.InvalidStreamMode
 The stream mode is invalid, raised from change_stream and join_group_call
 
-## exceptions.PyrogramNotSet
-Pyrogram client not set, raised from join_group_call, leave_group_call, change_volume_call, change_stream, pause_stream, resume_stream
+## exceptions.NoMtProtoClientSet
+An MtProto client not set, raised from join_group_call, leave_group_call, change_volume_call, change_stream, pause_stream, resume_stream
 
 ## exceptions.NodeJSNotRunning
-NodeJS core not running, do start before call this methods, raised from join_group_call, leave_group_call, change_volume_call, change_stream, pause_stream, resume_stream
+NodeJS core not running, do start before call these methods, raised from join_group_call, leave_group_call, change_volume_call, change_stream, pause_stream, resume_stream
 
 ## exceptions.NoActiveGroupCall
 No active group call found, raised from join_group_call, leave_group_call, change_volume_call
