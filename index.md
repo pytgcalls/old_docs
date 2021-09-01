@@ -3,10 +3,12 @@
 > to work with Telegram group calls.
 
 # Recent changes
-> ## Working in Progress - 0.8.0b1
+> ## Working in Progress - 0.8.0b2
 > - Fixed AntiFlood cache not working
 > - Added Telethon Support
 > - Added support for join in groups and channel
+> - Working on Video Group Calls
+> - Added idle function
 
 > ## Update of 26/08/2021 - 0.7.3
 > - Custom Api now is Async!
@@ -80,7 +82,8 @@ Join a group call to stream a file
 Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
-file_path | String | Path of a RAW audio file
+file_audio_path | String | Path of a RAW audio file
+file_video_path | String | Path of a RAW video file
 invite_hash (Optional) | String | Telegram invite voice chat hash
 bitrate (Optional) | Integer | Audio stream bitrate (maximum amount allowed by Telegram: 48K)
 join_as (Optional) | pyrogram.raw.base.InputPeer or telethon.tl.types.InputTypePeer | InputPeer of join as channel or profile
