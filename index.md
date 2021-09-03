@@ -100,7 +100,7 @@ pytgcalls.join_group_call(
         '/home/user/Laky64/annoying_dog.raw',
     ),
     48000,
-    pytgcalls.get_cache_peer(),
+    pytgcalls.cache_peer,
     StreamType().local_stream,
 )
 ...
@@ -240,23 +240,13 @@ print(pytgcalls.get_call(-1001185324811))
 ...
 ```
 
-## get_cache_id
-Return current UserID
-
-### _Example_
-``` python
-...
-print(pytgcalls.get_cache_id())
-...
-```
-
-## get_cache_peer
+## cache_peer
 Return current InputPeer
 
 ### _Example_
 ``` python
 ...
-print(pytgcalls.get_cache_peer())
+print(pytgcalls.cache_peer)
 ...
 ```
 
