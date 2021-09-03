@@ -647,9 +647,6 @@ Wait previous ping request before new request, raised from ping
 ## exceptions.TooManyCustomApiDecorators
 Too Many Custom Api Decorators, raised from on_update_custom_api
 
-## exceptions.TooManyCustomApiDecorators
-Too Many Custom Api Decorators, raised from on_update_custom_api
-
 ## exceptions.GroupCallNotFound
 Group call not found, raised from get_active_call and get_call
 
