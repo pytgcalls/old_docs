@@ -3,12 +3,13 @@
 > to work with Telegram group calls.
 
 # Recent changes
-> ## Working in Progress - 0.8.0b2
+> ## Working in Progress - 0.8.0b4
 > - Fixed AntiFlood cache not working
 > - Added Telethon Support
 > - Added support for join in groups and channel
-> - Working on Video Group Calls
+> - Added Video Group Calls support
 > - Added idle function
+> - Some bugs fix
 
 > ## Update of 26/08/2021 - 0.7.3
 > - Custom Api now is Async!
@@ -82,8 +83,8 @@ Join a group call to stream a file
 Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
-file_audio_path | String | Path of a RAW audio file
-file_video_path | String | Path of a RAW video file
+stream_audio | types.input_stream.InputAudioStream | Audio File Descriptor
+stream_video (Optional) | types.input_stream.InputVideoStream | Video File Descriptor
 invite_hash (Optional) | String | Telegram invite voice chat hash
 bitrate (Optional) | Integer | Audio stream bitrate (maximum amount allowed by Telegram: 48K)
 join_as (Optional) | pyrogram.raw.base.InputPeer or telethon.tl.types.InputTypePeer | InputPeer of join as channel or profile
@@ -95,7 +96,9 @@ stream_type (Optional) | pytgcalls.StreamType | The type of Stream
 # AVAILABLE ASYNC AND SYNC
 pytgcalls.join_group_call(
     -1001185324811,
-    '/home/user/Laky64/annoying_dog.raw',
+    InputAudioStream(
+        '/home/user/Laky64/annoying_dog.raw',
+    ),
     48000,
     pytgcalls.get_cache_peer(),
     StreamType().local_stream,
@@ -173,13 +176,19 @@ Change audio stream without reconnection
 Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
-file_path | String | Path of a RAW audio file
+stream_audio | types.input_stream.InputAudioStream | Audio File Descriptor
+stream_video (Optional) | types.input_stream.InputVideoStream | Video File Descriptor
 
 ### _Example_
 ``` python
 ...
 # AVAILABLE ASYNC AND SYNC
-pytgcalls.change_stream(-1001185324811, '/home/user/Laky64/annoying_dog.raw')
+pytgcalls.change_stream(
+    -1001185324811,
+    InputAudioStream(
+        '/home/user/Laky64/annoying_dog.raw',
+    ),
+)
 ...
 ```
 
@@ -269,6 +278,19 @@ Check if running py-tgcalls Client
 ``` python
 ...
 pytgcalls.is_connected
+...
+```
+
+## idle
+Idle your python file in async way
+
+### _Example_
+``` python
+...
+from pytgcalls import idle
+...
+# AVAILABLE ASYNC AND SYNC
+idle()
 ...
 ```
 
@@ -369,8 +391,8 @@ func | Callable | Callable decorator
 ``` python
 ...
 @pytgcalls.on_stream_end()
-async def handler(client: PyTgCalls, chat_id: int):
-    print(chat_id)
+async def handler(client: PyTgCalls, update: Update):
+    print(update)
 ...
 ```
 
@@ -530,6 +552,20 @@ Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
 
+## types.stream.StreamAudioEnded
+Ended audio stream, raised from on_stream_end
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+## types.stream.StreamVideoEnded
+Ended video stream, raised from on_stream_end
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
 ## types.groups.GroupCall
 GroupCall from active_calls, calls, get_active_call and get_call
 
@@ -549,6 +585,38 @@ Status from types.groups.GroupCall
 
 ## types.groups.NotPlayingStream
 Status from types.groups.GroupCall
+
+## types.input_stream.InputAudioStream
+Input Audio Stream Descriptor of JoinGroupCall and ChangeStream
+
+Field | Type | Description
+--- | --- | ---
+path | String | Raw Audio File Path
+parameters (Optional) | types.input_stream.AudioParameters | Audio parameters
+
+## types.input_stream.InputVideoStream
+Input Video Stream Descriptor of JoinGroupCall and ChangeStream
+
+Field | Type | Description
+--- | --- | ---
+path | String | Raw Video File Path
+parameters (Optional) | types.input_stream.VideoParameters | Video parameters
+
+## types.input_stream.AudioParameters
+Video parameters of InputAudioStream
+
+Field | Type | Description
+--- | --- | ---
+bitrate (Optional) | Integer | Audio bitrate
+
+## types.input_stream.VideoParameters
+Video parameters of InputVideoStream
+
+Field | Type | Description
+--- | --- | ---
+width | Integer | Video width
+height | Integer | Video height
+frame_rate | Integer | Video frame rate
 
 
 # Exceptions
