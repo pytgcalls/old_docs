@@ -3,13 +3,14 @@
 > to work with Telegram group calls.
 
 # Recent changes
-> ## Working in Progress - 0.8.0b7
+> ## Update of 07/09/2021 - 0.8.0
 > - Fixed AntiFlood cache not working
 > - Added Telethon Support
 > - Added support for join in groups and channel
 > - Added Video Group Calls support
 > - Added Audio/Video syncer
 > - Added idle function
+> - Fixed Binding
 > - Some bugs fix
 > - Added FIFO support
 
