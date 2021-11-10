@@ -3,6 +3,23 @@
 > to work with Telegram group calls.
 
 # Recent changes
+
+> ## Update of 10/11/2021 - 0.8.1
+> - Added all proportion video support
+> - Fixed stderr overflow (Added reader)
+> - PyTgCalls logging named
+> - Added internal ffmpeg conversion (AudioPiped, AudioVideoPiped, AudioImagePiped)
+> - Added remote stream support
+> - Added Multi-Core support (Beta)
+> - Added possibility to stream image with audio (AudioImagePiped)
+> - Added GetParticipants and OnParticipantChange
+> - Added support of \_\_str__ also for Python List
+> - Added retry if WRTC connection fail
+> - Added Browser Constants
+> - Buffer Reader now is lighter
+> - Added Python3.10 Support
+> - Now support multi ping request
+
 > ## Update of 07/09/2021 - 0.8.0
 > - Fixed AntiFlood cache not working
 > - Added Telethon Support
@@ -19,39 +36,6 @@
 > - Fixed Async Lock problems
 > - Now resume_stream and pause_stream return the result of operation with bool
 > - JS code cleaned
-
-> ## Update of 23/08/2021 - 0.7.2
-> - Added on_left (Called when your userbot left the group)
-> - Some bugs fix
-
-> ## Update of 20/08/2021 - 0.7.0
-> - PyTgCalls Re-Base
-> - Fully Async
-> - Removed internal server and replaced with stdin and stdout
-> - CustomAPI renewed to 2.1
-> - RawUpdate renewed with PyTgCalls Object Update
-> - Added custom exceptions
-> - .run() is now .start()
-> - Now the logs have all gone to Logging
-> - Added if the stream is deleted, the userbot will exit the voice call by printing an error in RawUpdate
-> - Windows Support
-> - macOS support
-> - Linux Arm64 support
-> - Bug Fix
-
-> ## Update of 10/08/2021 - 0.6.1
-> - Added self to handlers
-> - Some fix
-
-> ## Update of 10/08/2021 - 0.6.0
-> - Added multiple instance support
-> - Added possibility to call functions without waiting for NodeJS Core
-> - Added remote check version available
-> - CustomAPI 2.0
-> - Security Fix
-> - Code Cleaned
-
-
 
 # Audio Needed
 The following is the required audio type
@@ -71,6 +55,8 @@ Field | Type | Description
 --- | --- | ---
 app | pyrogram.Client or telethon.TelegramClient | A MtProto client
 cache_duration (Optional) | Integer | The duration of get_full_chat cache (In seconds)
+overload_quiet_mode (Optional) | Boolean | Disable the overload warning messages
+multi_thread (Optional) | Boolean | Enable multi thread (Beta) for pytgcalls
 
 ### _Example_
 ``` python
@@ -86,10 +72,8 @@ Join a group call to stream a file
 Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
-stream_audio | types.input_stream.InputAudioStream | Audio File Descriptor
-stream_video (Optional) | types.input_stream.InputVideoStream | Video File Descriptor
+stream | types.input_stream.InputStream | Streams Descriptor
 invite_hash (Optional) | String | Telegram invite voice chat hash
-bitrate (Optional) | Integer | Audio stream bitrate (maximum amount allowed by Telegram: 48K)
 join_as (Optional) | pyrogram.raw.base.InputPeer or telethon.tl.types.InputTypePeer | InputPeer of join as channel or profile
 stream_type (Optional) | pytgcalls.StreamType | The type of Stream
 
@@ -97,12 +81,31 @@ stream_type (Optional) | pytgcalls.StreamType | The type of Stream
 ``` python
 ...
 # AVAILABLE ASYNC AND SYNC
+
+# Legacy Audio support only Raw Format
 pytgcalls.join_group_call(
     -1001185324811,
-    InputAudioStream(
-        '/home/user/Laky64/annoying_dog.raw',
+    InputStream(
+        InputAudioStream(
+            '/home/user/Laky64/annoying_dog.raw',
+            AudioParameters(
+                48000,
+            ),
+        ),
     ),
-    48000,
+    pytgcalls.cache_peer,
+    StreamType().pulse_stream,
+)
+
+# High Level Audio support all format supported by ffmpeg
+pytgcalls.join_group_call(
+    -1001185324811,
+    AudioPiped(
+        '/home/user/Laky64/annoying_dog.mp3',
+        AudioParameters(
+            48000,
+        ),
+    ),
     pytgcalls.cache_peer,
     StreamType().local_stream,
 )
@@ -186,10 +189,22 @@ stream_video (Optional) | types.input_stream.InputVideoStream | Video File Descr
 ``` python
 ...
 # AVAILABLE ASYNC AND SYNC
+
+# Legacy Audio support only Raw Format
 pytgcalls.change_stream(
     -1001185324811,
-    InputAudioStream(
-        '/home/user/Laky64/annoying_dog.raw',
+    InputStream(
+        InputAudioStream(
+            '/home/user/Laky64/annoying_dog.raw',
+        ),
+    ),
+)
+
+# High Level Audio support all format supported by ffmpeg
+pytgcalls.change_stream(
+    -1001185324811,
+    AudioPiped(
+        '/home/user/Laky64/annoying_dog.mp3',
     ),
 )
 ...
@@ -242,6 +257,21 @@ chat_id | Integer | Chat ID of a supergroup
 print(pytgcalls.get_call(-1001185324811))
 ...
 ```
+
+## get_participants
+Get GroupCall of joined voice chat
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of a supergroup
+
+### _Example_
+``` python
+...
+print(pytgcalls.get_participants(-1001185324811))
+...
+```
+
 
 ## cache_peer
 Return current InputPeer
@@ -389,6 +419,10 @@ async def handler(client: PyTgCalls, update: Update):
 ...
 ```
 
+> ### Warning!
+> This decorator can be called twice (if you are using audio and video), 
+> because it will be raised when the video ends and the audio too
+
 ## on_group_call_invite
 Decorator handling when receiving an invitation to the group call
 
@@ -421,6 +455,8 @@ port | Integer | CustomAPI server port
 ### _Example_
 ``` python
 ...
+
+# AVAILABLE ASYNC AND SYNC
 custom_api = CustomApi()
 ...
 @custom_api.on_update_custom_api()
@@ -478,6 +514,22 @@ func | Callable | Callable decorator
 @pytgcalls.on_closed_voice_chat()
 async def handler(client: PyTgCalls, chat_id: int):
     print(chat_id)
+...
+```
+
+## on_participants_change
+Decorator handling when participants list was changed
+
+Field | Type | Description
+--- | --- | ---
+func | Callable | Callable decorator
+
+### _Example_
+``` python
+...
+@pytgcalls.on_participants_change()
+async def handler(client: PyTgCalls, update: Update):
+    print(update)
 ...
 ```
 
@@ -565,22 +617,35 @@ GroupCall from active_calls, calls, get_active_call and get_call
 Field | Type | Description
 --- | --- | ---
 chat_id | Integer | Chat ID of a supergroup
-status | types.groups.Status | Status of streaming
+status | String | Status of streaming
+is_playing | Boolean | Status of playing
 
-## types.groups.Status
-Status from types.groups.GroupCall
+## types.groups.GroupCallParticipant
+GroupCallParticipant from get_participants and on_participants_change
 
-## types.groups.PlayingStream
-Status from types.groups.GroupCall
+Field | Type | Description
+--- | --- | ---
+user_id | Integer | User ID
+muted | Boolean | If is muted
+muted_by_admin | Boolean | If was muted by admin
+video | Boolean | If is sharing a video
+screen_sharing | Boolean | If is sharing the screen
+video_camera | Boolean | If is sharing the camera
+raised_hand | Boolean | If have raised the hand
+volume | Integer | User volume by admin
 
-## types.groups.PausedStream
-Status from types.groups.GroupCall
+## types.input_stream.InputStream
+Input Stream Descriptor of JoinGroupCall and ChangeStream
 
-## types.groups.NotPlayingStream
-Status from types.groups.GroupCall
+Field | Type | Description
+--- | --- | ---
+path | String | Raw Audio File Path
+stream_audio (Optional) | types.input_stream.InputAudioStream | Audio File Descriptor
+stream_video (Optional) | types.input_stream.InputVideoStream | Video File Descriptor
+lip_sync (Optional) | Boolean | Enable/Disable the Lip Sync
 
 ## types.input_stream.InputAudioStream
-Input Audio Stream Descriptor of JoinGroupCall and ChangeStream
+Input Audio Stream Descriptor of InputStream
 
 Field | Type | Description
 --- | --- | ---
@@ -643,9 +708,6 @@ NodeJS core not running, do start before call these methods, raised from join_gr
 
 ## exceptions.NoActiveGroupCall
 No active group call found, raised from join_group_call, leave_group_call, change_volume_call
-
-## exceptions.WaitPreviousPingRequest
-Wait previous ping request before new request, raised from ping
 
 ## exceptions.TooManyCustomApiDecorators
 Too Many Custom Api Decorators, raised from on_update_custom_api
