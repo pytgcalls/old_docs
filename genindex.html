@@ -1,0 +1,838 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/><title>Index - PyTgCalls Documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f0f0f0;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">PyTgCalls Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">PyTgCalls Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/install.html">Install Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start/invoking.html">Calling Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start/updates.html">Handling Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/client.html">PyTgCalls Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/custom_api.html">Custom Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/stream_type.html">Stream Type</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api/methods/index.html">Available Methods</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/get_max_voice_chat.html">get_max_voice_chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/start.html">start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/run.html">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/idle.html">idle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/change_volume_call.html">    change_volume_call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/get_active_call.html">    get_active_call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/get_call.html">    get_call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/get_participants.html">    get_participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/join_group_call.html">    join_group_call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/leave_group_call.html">    leave_group_call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/change_stream.html">    change_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/mute_stream.html">    mute_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/unmute_stream.html">    unmute_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/pause_stream.html">    pause_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/resume_stream.html">    resume_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/methods/start_custom_api.html">    start</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api/types/index.html">Available Types</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/types/GroupCall.html">GroupCall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/GroupCallParticipant.html">GroupCallParticipant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/Update.html">Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/ErrorDuringJoin.html">ErrorDuringJoin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/JoinedVoiceChat.html">JoinedVoiceChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/LeftVoiceChat.html">LeftVoiceChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/ChangedStream.html">ChangedStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/MutedStream.html">MutedStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/PausedStream.html">PausedStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/ResumedStream.html">ResumedStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/StreamAudioEnded.html">StreamAudioEnded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/StreamDeleted.html">StreamDeleted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/StreamVideoEnded.html">StreamVideoEnded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/UnMutedStream.html">UnMutedStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/JoinedGroupCallParticipant.html">JoinedGroupCallParticipant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/UpdatedGroupCallParticipant.html">UpdatedGroupCallParticipant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/LeftGroupCallParticipant.html">LeftGroupCallParticipant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/InputStream.html">InputStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/InputAudioStream.html">InputAudioStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/InputVideoStream.html">InputVideoStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/AudioImagePiped.html">AudioImagePiped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/AudioPiped.html">AudioPiped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/AudioVideoPiped.html">AudioVideoPiped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/VideoPiped.html">VideoPiped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/AudioParameters.html">AudioParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/VideoParameters.html">VideoParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/HighQualityAudio.html">HighQualityAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/MediumQualityAudio.html">MediumQualityAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/LowQualityAudio.html">LowQualityAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/HighQualityVideo.html">HighQualityVideo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/MediumQualityVideo.html">MediumQualityVideo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/types/LowQualityVideo.html">LowQualityVideo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/decorators.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Meta</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="releases/index.html">Release Notes</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v.0.0.9.html">PyTgCalls v0.0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v.0.1.0.html">PyTgCalls v0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v.0.2.0.html">PyTgCalls v0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v.0.3.0.html">PyTgCalls v0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v.0.4.0.html">PyTgCalls v0.4.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v.0.6.0.html">PyTgCalls v0.6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v.0.7.0.html">PyTgCalls v0.7.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v.0.8.0.html">PyTgCalls v0.8.0</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#J"><strong>J</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
+</section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/client.html#pytgcalls.PyTgCalls.active_calls">active_calls (pytgcalls.PyTgCalls attribute)</a>
+</li>
+        <li><a href="api/types/AudioImagePiped.html#pytgcalls.types.AudioImagePiped">AudioImagePiped (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/AudioParameters.html#pytgcalls.types.AudioParameters">AudioParameters (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/AudioPiped.html#pytgcalls.types.AudioPiped">AudioPiped (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/AudioVideoPiped.html#pytgcalls.types.AudioVideoPiped">AudioVideoPiped (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/AudioParameters.html#pytgcalls.types.AudioParameters.bitrate">bitrate (pytgcalls.types.AudioParameters attribute)</a>
+
+        <ul>
+          <li><a href="api/types/HighQualityAudio.html#pytgcalls.types.HighQualityAudio.bitrate">(pytgcalls.types.HighQualityAudio attribute)</a>
+</li>
+          <li><a href="api/types/LowQualityAudio.html#pytgcalls.types.LowQualityAudio.bitrate">(pytgcalls.types.LowQualityAudio attribute)</a>
+</li>
+          <li><a href="api/types/MediumQualityAudio.html#pytgcalls.types.MediumQualityAudio.bitrate">(pytgcalls.types.MediumQualityAudio attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/client.html#pytgcalls.PyTgCalls.cache_peer">cache_peer (pytgcalls.PyTgCalls attribute)</a>
+</li>
+        <li><a href="api/client.html#pytgcalls.PyTgCalls.calls">calls (pytgcalls.PyTgCalls attribute)</a>
+</li>
+        <li><a href="api/methods/change_stream.html#pytgcalls.PyTgCalls.change_stream">change_stream() (pytgcalls.PyTgCalls method)</a>
+</li>
+        <li><a href="api/methods/change_volume_call.html#pytgcalls.PyTgCalls.change_volume_call">change_volume_call() (pytgcalls.PyTgCalls method)</a>
+</li>
+        <li><a href="api/types/ChangedStream.html#pytgcalls.types.ChangedStream">ChangedStream (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/ChangedStream.html#pytgcalls.types.ChangedStream.chat_id">chat_id (pytgcalls.types.ChangedStream attribute)</a>
+
+        <ul>
+          <li><a href="api/types/ErrorDuringJoin.html#pytgcalls.types.ErrorDuringJoin.chat_id">(pytgcalls.types.ErrorDuringJoin attribute)</a>
+</li>
+          <li><a href="api/types/GroupCall.html#pytgcalls.types.GroupCall.chat_id">(pytgcalls.types.GroupCall attribute)</a>
+</li>
+          <li><a href="api/types/JoinedGroupCallParticipant.html#pytgcalls.types.JoinedGroupCallParticipant.chat_id">(pytgcalls.types.JoinedGroupCallParticipant attribute)</a>
+</li>
+          <li><a href="api/types/JoinedVoiceChat.html#pytgcalls.types.JoinedVoiceChat.chat_id">(pytgcalls.types.JoinedVoiceChat attribute)</a>
+</li>
+          <li><a href="api/types/LeftGroupCallParticipant.html#pytgcalls.types.LeftGroupCallParticipant.chat_id">(pytgcalls.types.LeftGroupCallParticipant attribute)</a>
+</li>
+          <li><a href="api/types/LeftVoiceChat.html#pytgcalls.types.LeftVoiceChat.chat_id">(pytgcalls.types.LeftVoiceChat attribute)</a>
+</li>
+          <li><a href="api/types/MutedStream.html#pytgcalls.types.MutedStream.chat_id">(pytgcalls.types.MutedStream attribute)</a>
+</li>
+          <li><a href="api/types/PausedStream.html#pytgcalls.types.PausedStream.chat_id">(pytgcalls.types.PausedStream attribute)</a>
+</li>
+          <li><a href="api/types/ResumedStream.html#pytgcalls.types.ResumedStream.chat_id">(pytgcalls.types.ResumedStream attribute)</a>
+</li>
+          <li><a href="api/types/StreamAudioEnded.html#pytgcalls.types.StreamAudioEnded.chat_id">(pytgcalls.types.StreamAudioEnded attribute)</a>
+</li>
+          <li><a href="api/types/StreamDeleted.html#pytgcalls.types.StreamDeleted.chat_id">(pytgcalls.types.StreamDeleted attribute)</a>
+</li>
+          <li><a href="api/types/StreamVideoEnded.html#pytgcalls.types.StreamVideoEnded.chat_id">(pytgcalls.types.StreamVideoEnded attribute)</a>
+</li>
+          <li><a href="api/types/UnMutedStream.html#pytgcalls.types.UnMutedStream.chat_id">(pytgcalls.types.UnMutedStream attribute)</a>
+</li>
+          <li><a href="api/types/Update.html#pytgcalls.types.Update.chat_id">(pytgcalls.types.Update attribute)</a>
+</li>
+          <li><a href="api/types/UpdatedGroupCallParticipant.html#pytgcalls.types.UpdatedGroupCallParticipant.chat_id">(pytgcalls.types.UpdatedGroupCallParticipant attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/custom_api.html#pytgcalls.CustomApi">CustomApi (class in pytgcalls)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/ErrorDuringJoin.html#pytgcalls.types.ErrorDuringJoin">ErrorDuringJoin (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/AudioImagePiped.html#pytgcalls.types.AudioImagePiped.ffmpeg_parameters">ffmpeg_parameters (pytgcalls.types.AudioImagePiped attribute)</a>
+
+        <ul>
+          <li><a href="api/types/AudioPiped.html#pytgcalls.types.AudioPiped.ffmpeg_parameters">(pytgcalls.types.AudioPiped attribute)</a>
+</li>
+          <li><a href="api/types/AudioVideoPiped.html#pytgcalls.types.AudioVideoPiped.ffmpeg_parameters">(pytgcalls.types.AudioVideoPiped attribute)</a>
+</li>
+          <li><a href="api/types/VideoPiped.html#pytgcalls.types.VideoPiped.ffmpeg_parameters">(pytgcalls.types.VideoPiped attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/HighQualityVideo.html#pytgcalls.types.HighQualityVideo.frame_rate">frame_rate (pytgcalls.types.HighQualityVideo attribute)</a>
+
+        <ul>
+          <li><a href="api/types/LowQualityVideo.html#pytgcalls.types.LowQualityVideo.frame_rate">(pytgcalls.types.LowQualityVideo attribute)</a>
+</li>
+          <li><a href="api/types/MediumQualityVideo.html#pytgcalls.types.MediumQualityVideo.frame_rate">(pytgcalls.types.MediumQualityVideo attribute)</a>
+</li>
+          <li><a href="api/types/VideoParameters.html#pytgcalls.types.VideoParameters.frame_rate">(pytgcalls.types.VideoParameters attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/methods/get_active_call.html#pytgcalls.PyTgCalls.get_active_call">get_active_call() (pytgcalls.PyTgCalls method)</a>
+</li>
+        <li><a href="api/methods/get_call.html#pytgcalls.PyTgCalls.get_call">get_call() (pytgcalls.PyTgCalls method)</a>
+</li>
+        <li><a href="api/methods/get_max_voice_chat.html#pytgcalls.PyTgCalls.get_max_voice_chat">get_max_voice_chat() (pytgcalls.PyTgCalls static method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/methods/get_participants.html#pytgcalls.PyTgCalls.get_participants">get_participants() (pytgcalls.PyTgCalls method)</a>
+</li>
+        <li><a href="api/types/GroupCall.html#pytgcalls.types.GroupCall">GroupCall (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.GroupCallNotFound">GroupCallNotFound</a>
+</li>
+        <li><a href="api/types/GroupCallParticipant.html#pytgcalls.types.GroupCallParticipant">GroupCallParticipant (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/HighQualityVideo.html#pytgcalls.types.HighQualityVideo.height">height (pytgcalls.types.HighQualityVideo attribute)</a>
+
+        <ul>
+          <li><a href="api/types/LowQualityVideo.html#pytgcalls.types.LowQualityVideo.height">(pytgcalls.types.LowQualityVideo attribute)</a>
+</li>
+          <li><a href="api/types/MediumQualityVideo.html#pytgcalls.types.MediumQualityVideo.height">(pytgcalls.types.MediumQualityVideo attribute)</a>
+</li>
+          <li><a href="api/types/VideoParameters.html#pytgcalls.types.VideoParameters.height">(pytgcalls.types.VideoParameters attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/HighQualityAudio.html#pytgcalls.types.HighQualityAudio">HighQualityAudio (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/HighQualityVideo.html#pytgcalls.types.HighQualityVideo">HighQualityVideo (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/methods/idle.html#pytgcalls.idle">idle() (in module pytgcalls)</a>
+</li>
+        <li><a href="api/types/InputAudioStream.html#pytgcalls.types.InputAudioStream">InputAudioStream (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/InputStream.html#pytgcalls.types.InputStream">InputStream (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/InputVideoStream.html#pytgcalls.types.InputVideoStream">InputVideoStream (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.InvalidMtProtoClient">InvalidMtProtoClient</a>
+</li>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.InvalidStreamMode">InvalidStreamMode</a>
+</li>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.InvalidVideoProportion">InvalidVideoProportion</a>
+</li>
+        <li><a href="api/client.html#pytgcalls.PyTgCalls.is_connected">is_connected (pytgcalls.PyTgCalls attribute)</a>
+</li>
+        <li><a href="api/types/GroupCall.html#pytgcalls.types.GroupCall.is_playing">is_playing (pytgcalls.types.GroupCall attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="J" class="genindex-section">
+  <h2>J</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/methods/join_group_call.html#pytgcalls.PyTgCalls.join_group_call">join_group_call() (pytgcalls.PyTgCalls method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/JoinedGroupCallParticipant.html#pytgcalls.types.JoinedGroupCallParticipant">JoinedGroupCallParticipant (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/JoinedVoiceChat.html#pytgcalls.types.JoinedVoiceChat">JoinedVoiceChat (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/methods/leave_group_call.html#pytgcalls.PyTgCalls.leave_group_call">leave_group_call() (pytgcalls.PyTgCalls method)</a>
+</li>
+        <li><a href="api/types/LeftGroupCallParticipant.html#pytgcalls.types.LeftGroupCallParticipant">LeftGroupCallParticipant (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/LeftVoiceChat.html#pytgcalls.types.LeftVoiceChat">LeftVoiceChat (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/AudioImagePiped.html#pytgcalls.types.AudioImagePiped.lip_sync">lip_sync (pytgcalls.types.AudioImagePiped attribute)</a>
+
+        <ul>
+          <li><a href="api/types/AudioPiped.html#pytgcalls.types.AudioPiped.lip_sync">(pytgcalls.types.AudioPiped attribute)</a>
+</li>
+          <li><a href="api/types/AudioVideoPiped.html#pytgcalls.types.AudioVideoPiped.lip_sync">(pytgcalls.types.AudioVideoPiped attribute)</a>
+</li>
+          <li><a href="api/types/InputStream.html#pytgcalls.types.InputStream.lip_sync">(pytgcalls.types.InputStream attribute)</a>
+</li>
+          <li><a href="api/types/VideoPiped.html#pytgcalls.types.VideoPiped.lip_sync">(pytgcalls.types.VideoPiped attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/stream_type.html#pytgcalls.StreamType.live_stream">live_stream (pytgcalls.StreamType attribute)</a>
+</li>
+        <li><a href="api/stream_type.html#pytgcalls.StreamType.local_stream">local_stream (pytgcalls.StreamType attribute)</a>
+</li>
+        <li><a href="api/types/LowQualityAudio.html#pytgcalls.types.LowQualityAudio">LowQualityAudio (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/LowQualityVideo.html#pytgcalls.types.LowQualityVideo">LowQualityVideo (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/MediumQualityAudio.html#pytgcalls.types.MediumQualityAudio">MediumQualityAudio (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/MediumQualityVideo.html#pytgcalls.types.MediumQualityVideo">MediumQualityVideo (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/methods/mute_stream.html#pytgcalls.PyTgCalls.mute_stream">mute_stream() (pytgcalls.PyTgCalls method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/GroupCallParticipant.html#pytgcalls.types.GroupCallParticipant.muted">muted (pytgcalls.types.GroupCallParticipant attribute)</a>
+</li>
+        <li><a href="api/types/GroupCallParticipant.html#pytgcalls.types.GroupCallParticipant.muted_by_admin">muted_by_admin (pytgcalls.types.GroupCallParticipant attribute)</a>
+</li>
+        <li><a href="api/types/MutedStream.html#pytgcalls.types.MutedStream">MutedStream (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.NoActiveGroupCall">NoActiveGroupCall</a>
+</li>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.NoAudioSourceFound">NoAudioSourceFound</a>
+</li>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.NodeJSNotInstalled">NodeJSNotInstalled</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.NodeJSNotRunning">NodeJSNotRunning</a>
+</li>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.NoMtProtoClientSet">NoMtProtoClientSet</a>
+</li>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.NoVideoSourceFound">NoVideoSourceFound</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/decorators.html#pytgcalls.PyTgCalls.on_closed_voice_chat">on_closed_voice_chat() (in module pytgcalls.PyTgCalls)</a>
+</li>
+        <li><a href="api/decorators.html#pytgcalls.PyTgCalls.on_group_call_invite">on_group_call_invite() (in module pytgcalls.PyTgCalls)</a>
+</li>
+        <li><a href="api/decorators.html#pytgcalls.PyTgCalls.on_kicked">on_kicked() (in module pytgcalls.PyTgCalls)</a>
+</li>
+        <li><a href="api/decorators.html#pytgcalls.PyTgCalls.on_left">on_left() (in module pytgcalls.PyTgCalls)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/decorators.html#pytgcalls.PyTgCalls.on_participants_change">on_participants_change() (in module pytgcalls.PyTgCalls)</a>
+</li>
+        <li><a href="api/decorators.html#pytgcalls.PyTgCalls.on_raw_update">on_raw_update() (in module pytgcalls.PyTgCalls)</a>
+</li>
+        <li><a href="api/decorators.html#pytgcalls.PyTgCalls.on_stream_end">on_stream_end() (in module pytgcalls.PyTgCalls)</a>
+</li>
+        <li><a href="api/decorators.html#pytgcalls.CustomApi.on_update_custom_api">on_update_custom_api() (in module pytgcalls.CustomApi)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/InputAudioStream.html#pytgcalls.types.InputAudioStream.parameters">parameters (pytgcalls.types.InputAudioStream attribute)</a>
+
+        <ul>
+          <li><a href="api/types/InputVideoStream.html#pytgcalls.types.InputVideoStream.parameters">(pytgcalls.types.InputVideoStream attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/types/JoinedGroupCallParticipant.html#pytgcalls.types.JoinedGroupCallParticipant.participant">participant (pytgcalls.types.JoinedGroupCallParticipant attribute)</a>
+
+        <ul>
+          <li><a href="api/types/LeftGroupCallParticipant.html#pytgcalls.types.LeftGroupCallParticipant.participant">(pytgcalls.types.LeftGroupCallParticipant attribute)</a>
+</li>
+          <li><a href="api/types/UpdatedGroupCallParticipant.html#pytgcalls.types.UpdatedGroupCallParticipant.participant">(pytgcalls.types.UpdatedGroupCallParticipant attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/types/InputAudioStream.html#pytgcalls.types.InputAudioStream.path">path (pytgcalls.types.InputAudioStream attribute)</a>
+
+        <ul>
+          <li><a href="api/types/InputVideoStream.html#pytgcalls.types.InputVideoStream.path">(pytgcalls.types.InputVideoStream attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/methods/pause_stream.html#pytgcalls.PyTgCalls.pause_stream">pause_stream() (pytgcalls.PyTgCalls method)</a>
+</li>
+        <li><a href="api/types/PausedStream.html#pytgcalls.types.PausedStream">PausedStream (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/client.html#pytgcalls.PyTgCalls.ping">ping (pytgcalls.PyTgCalls attribute)</a>
+</li>
+        <li><a href="api/stream_type.html#pytgcalls.StreamType.pulse_stream">pulse_stream (pytgcalls.StreamType attribute)</a>
+</li>
+        <li><a href="api/client.html#pytgcalls.PyTgCalls">PyTgCalls (class in pytgcalls)</a>
+</li>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.PyTgCallsAlreadyRunning">PyTgCallsAlreadyRunning</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/GroupCallParticipant.html#pytgcalls.types.GroupCallParticipant.raised_hand">raised_hand (pytgcalls.types.GroupCallParticipant attribute)</a>
+</li>
+        <li><a href="api/types/AudioImagePiped.html#pytgcalls.types.AudioImagePiped.raw_headers">raw_headers (pytgcalls.types.AudioImagePiped attribute)</a>
+
+        <ul>
+          <li><a href="api/types/AudioPiped.html#pytgcalls.types.AudioPiped.raw_headers">(pytgcalls.types.AudioPiped attribute)</a>
+</li>
+          <li><a href="api/types/AudioVideoPiped.html#pytgcalls.types.AudioVideoPiped.raw_headers">(pytgcalls.types.AudioVideoPiped attribute)</a>
+</li>
+          <li><a href="api/types/VideoPiped.html#pytgcalls.types.VideoPiped.raw_headers">(pytgcalls.types.VideoPiped attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/methods/resume_stream.html#pytgcalls.PyTgCalls.resume_stream">resume_stream() (pytgcalls.PyTgCalls method)</a>
+</li>
+        <li><a href="api/types/ResumedStream.html#pytgcalls.types.ResumedStream">ResumedStream (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/methods/run.html#pytgcalls.PyTgCalls.run">run() (pytgcalls.PyTgCalls method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/GroupCallParticipant.html#pytgcalls.types.GroupCallParticipant.screen_sharing">screen_sharing (pytgcalls.types.GroupCallParticipant attribute)</a>
+</li>
+        <li><a href="api/methods/start_custom_api.html#pytgcalls.CustomApi.start">start() (pytgcalls.CustomApi method)</a>
+
+        <ul>
+          <li><a href="api/methods/start.html#pytgcalls.PyTgCalls.start">(pytgcalls.PyTgCalls method)</a>
+</li>
+        </ul></li>
+        <li><a href="api/types/GroupCall.html#pytgcalls.types.GroupCall.status">status (pytgcalls.types.GroupCall attribute)</a>
+</li>
+        <li><a href="api/types/AudioImagePiped.html#pytgcalls.types.AudioImagePiped.stream_audio">stream_audio (pytgcalls.types.AudioImagePiped attribute)</a>
+
+        <ul>
+          <li><a href="api/types/AudioPiped.html#pytgcalls.types.AudioPiped.stream_audio">(pytgcalls.types.AudioPiped attribute)</a>
+</li>
+          <li><a href="api/types/AudioVideoPiped.html#pytgcalls.types.AudioVideoPiped.stream_audio">(pytgcalls.types.AudioVideoPiped attribute)</a>
+</li>
+          <li><a href="api/types/InputStream.html#pytgcalls.types.InputStream.stream_audio">(pytgcalls.types.InputStream attribute)</a>
+</li>
+          <li><a href="api/types/VideoPiped.html#pytgcalls.types.VideoPiped.stream_audio">(pytgcalls.types.VideoPiped attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/stream_type.html#pytgcalls.StreamType.stream_mode">stream_mode (pytgcalls.StreamType attribute)</a>
+</li>
+        <li><a href="api/types/AudioImagePiped.html#pytgcalls.types.AudioImagePiped.stream_video">stream_video (pytgcalls.types.AudioImagePiped attribute)</a>
+
+        <ul>
+          <li><a href="api/types/AudioPiped.html#pytgcalls.types.AudioPiped.stream_video">(pytgcalls.types.AudioPiped attribute)</a>
+</li>
+          <li><a href="api/types/AudioVideoPiped.html#pytgcalls.types.AudioVideoPiped.stream_video">(pytgcalls.types.AudioVideoPiped attribute)</a>
+</li>
+          <li><a href="api/types/InputStream.html#pytgcalls.types.InputStream.stream_video">(pytgcalls.types.InputStream attribute)</a>
+</li>
+          <li><a href="api/types/VideoPiped.html#pytgcalls.types.VideoPiped.stream_video">(pytgcalls.types.VideoPiped attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/types/StreamAudioEnded.html#pytgcalls.types.StreamAudioEnded">StreamAudioEnded (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/StreamDeleted.html#pytgcalls.types.StreamDeleted">StreamDeleted (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/stream_type.html#pytgcalls.StreamType">StreamType (class in pytgcalls)</a>
+</li>
+        <li><a href="api/types/StreamVideoEnded.html#pytgcalls.types.StreamVideoEnded">StreamVideoEnded (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.TooManyCustomApiDecorators">TooManyCustomApiDecorators</a>
+</li>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.TooOldNodeJSVersion">TooOldNodeJSVersion</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.TooOldPyrogramVersion">TooOldPyrogramVersion</a>
+</li>
+        <li><a href="api/exceptions.html#pytgcalls.exceptions.TooOldTelethonVersion">TooOldTelethonVersion</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/methods/unmute_stream.html#pytgcalls.PyTgCalls.unmute_stream">unmute_stream() (pytgcalls.PyTgCalls method)</a>
+</li>
+        <li><a href="api/types/UnMutedStream.html#pytgcalls.types.UnMutedStream">UnMutedStream (class in pytgcalls.types)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/Update.html#pytgcalls.types.Update">Update (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/UpdatedGroupCallParticipant.html#pytgcalls.types.UpdatedGroupCallParticipant">UpdatedGroupCallParticipant (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/GroupCallParticipant.html#pytgcalls.types.GroupCallParticipant.user_id">user_id (pytgcalls.types.GroupCallParticipant attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/GroupCallParticipant.html#pytgcalls.types.GroupCallParticipant.video">video (pytgcalls.types.GroupCallParticipant attribute)</a>
+</li>
+        <li><a href="api/types/GroupCallParticipant.html#pytgcalls.types.GroupCallParticipant.video_camera">video_camera (pytgcalls.types.GroupCallParticipant attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/VideoParameters.html#pytgcalls.types.VideoParameters">VideoParameters (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/VideoPiped.html#pytgcalls.types.VideoPiped">VideoPiped (class in pytgcalls.types)</a>
+</li>
+        <li><a href="api/types/GroupCallParticipant.html#pytgcalls.types.GroupCallParticipant.volume">volume (pytgcalls.types.GroupCallParticipant attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/types/HighQualityVideo.html#pytgcalls.types.HighQualityVideo.width">width (pytgcalls.types.HighQualityVideo attribute)</a>
+
+        <ul>
+          <li><a href="api/types/LowQualityVideo.html#pytgcalls.types.LowQualityVideo.width">(pytgcalls.types.LowQualityVideo attribute)</a>
+</li>
+          <li><a href="api/types/MediumQualityVideo.html#pytgcalls.types.MediumQualityVideo.width">(pytgcalls.types.MediumQualityVideo attribute)</a>
+</li>
+          <li><a href="api/types/VideoParameters.html#pytgcalls.types.VideoParameters.width">(pytgcalls.types.VideoParameters attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+
+        <div class="related-information">
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+name: Documentation Build
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - '.gitignore'
+      - '.github_pages.yaml'
+      - '.nojekyll'
+      - '.github/*'
+  workflow_dispatch:
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 0
+    - name: Install Py-TgCalls
+      run: pip3 install py-tgcalls
+    - name: Install sphinx libraries
+      run: pip3 install sphinx_copybutton && pip3 install sphinx_tabs && pip3 install furo
+    - name: Build and Commit
+      uses: sphinx-notes/pages@master
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages

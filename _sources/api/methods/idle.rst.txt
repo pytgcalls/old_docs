@@ -1,0 +1,4 @@
+idle()
+======
+
+.. autofunction:: pytgcalls.idle()
