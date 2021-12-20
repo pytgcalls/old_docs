@@ -283,7 +283,7 @@ Group Calls</p>
 <a class="reference internal" href="../types/AudioImagePiped.html#pytgcalls.types.AudioImagePiped" title="pytgcalls.types.AudioImagePiped"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AudioImagePiped()</span></code></a>,
 <a class="reference internal" href="../types/AudioVideoPiped.html#pytgcalls.types.AudioVideoPiped" title="pytgcalls.types.AudioVideoPiped"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AudioVideoPiped()</span></code></a> or
 <a class="reference internal" href="../types/VideoPiped.html#pytgcalls.types.VideoPiped" title="pytgcalls.types.VideoPiped"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VideoPiped()</span></code></a></p></li>
-<li><p><strong>invite_hash</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier for the invite in a group call
+<li><p><strong>invite_hash</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>, <strong>optional</strong>) – Unique identifier for the invite in a group call
 in form of a t.me link</p></li>
 <li><p><strong>join_as</strong> (<a class="reference external" href="https://docs.pyrogram.org/telegram/base/input-peer">InputPeer (P)</a> | <a class="reference external" href="https://tl.telethon.dev/types/input_peer.html">InputPeer (T)</a>, <strong>optional</strong>) – InputPeer of join as channel or profile</p></li>
 <li><p><strong>stream_type</strong> (<a class="reference internal" href="../stream_type.html#pytgcalls.StreamType" title="pytgcalls.StreamType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StreamType</span></code></a>, <strong>optional</strong>) – The type of Stream</p></li>
@@ -314,6 +314,12 @@ in form of a t.me link</p></li>
 <li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.InvalidVideoProportion" title="pytgcalls.exceptions.InvalidVideoProportion"><strong>InvalidVideoProportion</strong></a> – In case you try
     to play an video without correct
     proportions</p></li>
+<li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.AlreadyJoinedError" title="pytgcalls.exceptions.AlreadyJoinedError"><strong>AlreadyJoinedError</strong></a> – In case you try
+    to join in already joined group
+    call</p></li>
+<li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.TelegramServerError" title="pytgcalls.exceptions.TelegramServerError"><strong>TelegramServerError</strong></a> – Error occurred when
+    joining to a group call (
+    Telegram Server Side)</p></li>
 </ul>
 </dd>
 </dl>

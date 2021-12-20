@@ -347,6 +347,13 @@ before call these methods, raised by
 <a class="reference internal" href="methods/pause_stream.html#pytgcalls.PyTgCalls.pause_stream" title="pytgcalls.PyTgCalls.pause_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pause_stream()</span></code></a> and
 <a class="reference internal" href="methods/resume_stream.html#pytgcalls.PyTgCalls.resume_stream" title="pytgcalls.PyTgCalls.resume_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">resume_stream()</span></code></a></p>
 </dd></dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pytgcalls.exceptions.TelegramServerError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytgcalls.exceptions.</span></span><span class="sig-name descname"><span class="pre">TelegramServerError</span></span><a class="headerlink" href="#pytgcalls.exceptions.TelegramServerError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Telegram Server is having some
+internal problems, raised by
+<a class="reference internal" href="methods/join_group_call.html#pytgcalls.PyTgCalls.join_group_call" title="pytgcalls.PyTgCalls.join_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join_group_call()</span></code></a></p>
+</dd></dl>
 </div>
 <div class="section" id="pytgcalls-errors">
 <h2>PyTgCalls Errors<a class="headerlink" href="#pytgcalls-errors" title="Permalink to this headline">¶</a></h2>
@@ -370,6 +377,18 @@ before call these methods, raised by
 <a class="reference internal" href="methods/join_group_call.html#pytgcalls.PyTgCalls.join_group_call" title="pytgcalls.PyTgCalls.join_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join_group_call()</span></code></a>,
 <a class="reference internal" href="methods/leave_group_call.html#pytgcalls.PyTgCalls.leave_group_call" title="pytgcalls.PyTgCalls.leave_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">leave_group_call()</span></code></a>,
 <a class="reference internal" href="methods/change_volume_call.html#pytgcalls.PyTgCalls.change_volume_call" title="pytgcalls.PyTgCalls.change_volume_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_volume_call()</span></code></a>,</p>
+</dd></dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pytgcalls.exceptions.NotInGroupCallError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytgcalls.exceptions.</span></span><span class="sig-name descname"><span class="pre">NotInGroupCallError</span></span><a class="headerlink" href="#pytgcalls.exceptions.NotInGroupCallError" title="Permalink to this definition">¶</a></dt>
+<dd><p>The userbot there isn’t in a group call, raised by
+<a class="reference internal" href="methods/leave_group_call.html#pytgcalls.PyTgCalls.leave_group_call" title="pytgcalls.PyTgCalls.leave_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">leave_group_call()</span></code></a></p>
+</dd></dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pytgcalls.exceptions.AlreadyJoinedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytgcalls.exceptions.</span></span><span class="sig-name descname"><span class="pre">AlreadyJoinedError</span></span><a class="headerlink" href="#pytgcalls.exceptions.AlreadyJoinedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Already joined into group call, raised by
+<a class="reference internal" href="methods/join_group_call.html#pytgcalls.PyTgCalls.join_group_call" title="pytgcalls.PyTgCalls.join_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join_group_call()</span></code></a></p>
 </dd></dl>
 </div>
 <div class="section" id="stream-errors">
