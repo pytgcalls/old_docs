@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Release Notes" href="../releases/index.html" /><link rel="prev" title="Decorators" href="decorators.html" />
 
-    <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
         <title>Exceptions - PyTgCalls Documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
@@ -195,7 +195,6 @@
 <li class="toctree-l2"><a class="reference internal" href="types/GroupCallParticipant.html">GroupCallParticipant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types/Update.html">Update</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types/ErrorDuringJoin.html">ErrorDuringJoin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="types/JoinedVoiceChat.html">JoinedVoiceChat</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types/LeftVoiceChat.html">LeftVoiceChat</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types/ChangedStream.html">ChangedStream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types/MutedStream.html">MutedStream</a></li>
@@ -348,14 +347,6 @@ before call these methods, raised by
 <a class="reference internal" href="methods/pause_stream.html#pytgcalls.PyTgCalls.pause_stream" title="pytgcalls.PyTgCalls.pause_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pause_stream()</span></code></a> and
 <a class="reference internal" href="methods/resume_stream.html#pytgcalls.PyTgCalls.resume_stream" title="pytgcalls.PyTgCalls.resume_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">resume_stream()</span></code></a></p>
 </dd></dl>
-<dl class="py exception">
-<dt class="sig sig-object py" id="pytgcalls.exceptions.NoActiveGroupCall">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytgcalls.exceptions.</span></span><span class="sig-name descname"><span class="pre">NoActiveGroupCall</span></span><a class="headerlink" href="#pytgcalls.exceptions.NoActiveGroupCall" title="Permalink to this definition">¶</a></dt>
-<dd><p>No active group call found, raised by
-<a class="reference internal" href="methods/join_group_call.html#pytgcalls.PyTgCalls.join_group_call" title="pytgcalls.PyTgCalls.join_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join_group_call()</span></code></a>,
-<a class="reference internal" href="methods/leave_group_call.html#pytgcalls.PyTgCalls.leave_group_call" title="pytgcalls.PyTgCalls.leave_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">leave_group_call()</span></code></a>,
-<a class="reference internal" href="methods/change_volume_call.html#pytgcalls.PyTgCalls.change_volume_call" title="pytgcalls.PyTgCalls.change_volume_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_volume_call()</span></code></a>,</p>
-</dd></dl>
 </div>
 <div class="section" id="pytgcalls-errors">
 <h2>PyTgCalls Errors<a class="headerlink" href="#pytgcalls-errors" title="Permalink to this headline">¶</a></h2>
@@ -371,6 +362,14 @@ before call these methods, raised by
 <dd><p>Group call not found, raised by
 <a class="reference internal" href="methods/get_active_call.html#pytgcalls.PyTgCalls.get_active_call" title="pytgcalls.PyTgCalls.get_active_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_active_call()</span></code></a>,
 <a class="reference internal" href="methods/get_call.html#pytgcalls.PyTgCalls.get_call" title="pytgcalls.PyTgCalls.get_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_call()</span></code></a></p>
+</dd></dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pytgcalls.exceptions.NoActiveGroupCall">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytgcalls.exceptions.</span></span><span class="sig-name descname"><span class="pre">NoActiveGroupCall</span></span><a class="headerlink" href="#pytgcalls.exceptions.NoActiveGroupCall" title="Permalink to this definition">¶</a></dt>
+<dd><p>No active group call found, raised by
+<a class="reference internal" href="methods/join_group_call.html#pytgcalls.PyTgCalls.join_group_call" title="pytgcalls.PyTgCalls.join_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join_group_call()</span></code></a>,
+<a class="reference internal" href="methods/leave_group_call.html#pytgcalls.PyTgCalls.leave_group_call" title="pytgcalls.PyTgCalls.leave_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">leave_group_call()</span></code></a>,
+<a class="reference internal" href="methods/change_volume_call.html#pytgcalls.PyTgCalls.change_volume_call" title="pytgcalls.PyTgCalls.change_volume_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_volume_call()</span></code></a>,</p>
 </dd></dl>
 </div>
 <div class="section" id="stream-errors">

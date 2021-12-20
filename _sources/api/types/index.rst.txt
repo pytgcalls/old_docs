@@ -49,14 +49,12 @@ Group Calls Event Types (Raw)
     :nosignatures:
 
     ErrorDuringJoin
-    JoinedVoiceChat
     LeftVoiceChat
 
 .. toctree::
     :hidden:
 
     ErrorDuringJoin
-    JoinedVoiceChat
     LeftVoiceChat
 
 .. currentmodule:: pytgcalls.types
