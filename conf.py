@@ -6,7 +6,7 @@ from pytgcalls import __version__
 
 sys.path.insert(0, os.path.abspath('../..'))
 
-# DOCS VERSIONED v1.0.0
+# DOCS VERSIONED v1.0.1
 project = 'PyTgCalls'
 copyright = f'2020-{datetime.now().year}, Laky-64'
 author = 'Laky-64'

@@ -30,12 +30,15 @@ MtProto Errors
 --------------
 .. autoexception:: pytgcalls.exceptions.InvalidMtProtoClient()
 .. autoexception:: pytgcalls.exceptions.NoMtProtoClientSet()
-.. autoexception:: pytgcalls.exceptions.NoActiveGroupCall()
+.. autoexception:: pytgcalls.exceptions.TelegramServerError()
 
 PyTgCalls Errors
 ----------------
 .. autoexception:: pytgcalls.exceptions.PyTgCallsAlreadyRunning()
 .. autoexception:: pytgcalls.exceptions.GroupCallNotFound()
+.. autoexception:: pytgcalls.exceptions.NoActiveGroupCall()
+.. autoexception:: pytgcalls.exceptions.NotInGroupCallError()
+.. autoexception:: pytgcalls.exceptions.AlreadyJoinedError()
 
 Stream Errors
 -------------
