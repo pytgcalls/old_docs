@@ -14,3 +14,4 @@ PyTgCalls v0.8.0
 - Get group call participants list
 - Decorator when changing participants list
 - Pre-Made User Agent
+- AsyncIO Future for all methods (Wait the NodeJS response)
