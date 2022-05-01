@@ -130,6 +130,10 @@ Piped Input Stream Types (With FFMpeg)
 .. autosummary::
     :nosignatures:
 
+    CaptureAudioDevice
+    CaptureAVDesktop
+    CaptureAVDeviceDesktop
+    CaptureVideoDesktop
     AudioImagePiped
     AudioPiped
     AudioVideoPiped
