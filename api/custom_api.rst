@@ -1,5 +1,5 @@
 Custom Api
-===============
+==========
 
 You have entered the API Reference section where you can find detailed information about Custom API. The Front-end API
 class, all available methods, types, attributes, decorators detailed descriptions can be
