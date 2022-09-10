@@ -20,7 +20,7 @@ jobs:
     - name: Install Py-TgCalls
       run: pip3 install py-tgcalls
     - name: Install sphinx libraries
-      run: pip3 install sphinx_copybutton && pip3 install sphinx_tabs && pip3 install furo
+      run: pip3 install sphinx_copybutton && pip3 install sphinx_tabs && pip3 install furo==2022.4.7
     - name: Build and Commit
       uses: sphinx-notes/pages@master
     - name: Push changes
