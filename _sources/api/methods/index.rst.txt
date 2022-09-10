@@ -83,6 +83,7 @@ Audio/Video Stream
         unmute_stream <unmute_stream>
         pause_stream <pause_stream>
         resume_stream <resume_stream>
+        played_time <played_time>
 
 
 .. toctree::

@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="leave_group_call()" href="leave_group_call.html" /><link rel="prev" title="get_participants()" href="get_participants.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.04.07"/>
         <title>join_group_call() - PyTgCalls Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
@@ -275,7 +275,7 @@
         </div>
         <article role="main">
           <section id="join-group-call">
-<h1>join_group_call()<a class="headerlink" href="#join-group-call" title="Permalink to this headline">#</a></h1>
+<h1>join_group_call()<a class="headerlink" href="#join-group-call" title="Permalink to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pytgcalls.PyTgCalls.join_group_call">
 <span class="sig-prename descclassname"><span class="pre">PyTgCalls.</span></span><span class="sig-name descname"><span class="pre">join_group_call</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytgcalls.PyTgCalls.join_group_call" title="Permalink to this definition">#</a></dt>
@@ -285,7 +285,8 @@ Group Calls</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>chat_id</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Unique identifier (int) of the target chat.</p></li>
+<li><p><strong>chat_id</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code> | <code class="docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of the target chat.
+Can be a direct id (int) or a username (str)</p></li>
 <li><p><strong>stream</strong> (<a class="reference internal" href="../types/InputStream.html#pytgcalls.types.InputStream" title="pytgcalls.types.InputStream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputStream()</span></code></a>) – Input Streams descriptor, can be used also
 <a class="reference internal" href="../types/AudioPiped.html#pytgcalls.types.AudioPiped" title="pytgcalls.types.AudioPiped"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AudioPiped()</span></code></a>,
 <a class="reference internal" href="../types/AudioImagePiped.html#pytgcalls.types.AudioImagePiped" title="pytgcalls.types.AudioImagePiped"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AudioImagePiped()</span></code></a>,
@@ -307,20 +308,20 @@ in form of a t.me link</p></li>
 <li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.NoActiveGroupCall" title="pytgcalls.exceptions.NoActiveGroupCall"><strong>NoActiveGroupCall</strong></a> – In case you try
     to edit a not started group call</p></li>
 <li><p><strong>FileNotFoundError</strong> – In case you try
-    a non existent file</p></li>
+    a non-existent file</p></li>
 <li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.InvalidStreamMode" title="pytgcalls.exceptions.InvalidStreamMode"><strong>InvalidStreamMode</strong></a> – In case you try
     to set a void stream mode</p></li>
 <li><p><strong>FFmpegNotInstalled</strong> – In case you try
-    to use the Piped input stream and
+    to use the Piped input stream, and
     you don’t have ffmpeg installed</p></li>
 <li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.NoAudioSourceFound" title="pytgcalls.exceptions.NoAudioSourceFound"><strong>NoAudioSourceFound</strong></a> – In case you try
     to play an audio file from a file
     without the sound</p></li>
 <li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.NoVideoSourceFound" title="pytgcalls.exceptions.NoVideoSourceFound"><strong>NoVideoSourceFound</strong></a> – In case you try
-    to play an video file from a file
+    to play a video file from a file
     without the video</p></li>
 <li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.InvalidVideoProportion" title="pytgcalls.exceptions.InvalidVideoProportion"><strong>InvalidVideoProportion</strong></a> – In case you try
-    to play an video without correct
+    to play a video without correct
     proportions</p></li>
 <li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.AlreadyJoinedError" title="pytgcalls.exceptions.AlreadyJoinedError"><strong>AlreadyJoinedError</strong></a> – In case you try
     to join in already joined group
@@ -328,6 +329,11 @@ in form of a t.me link</p></li>
 <li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.TelegramServerError" title="pytgcalls.exceptions.TelegramServerError"><strong>TelegramServerError</strong></a> – Error occurred when
     joining to a group call (
     Telegram Server Side)</p></li>
+<li><p><strong>RTMPStreamNeeded</strong> – In case you try
+    to join a group call without
+    a RTMP stream</p></li>
+<li><p><strong>UnMuteNeeded</strong> – In case you try
+    to play on a muted group call</p></li>
 </ul>
 </dd>
 </dl>
@@ -405,6 +411,7 @@ in form of a t.me link</p></li>
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/clipboard.min.js"></script>

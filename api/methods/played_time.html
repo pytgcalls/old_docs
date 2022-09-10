@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="InputAudioStream" href="InputAudioStream.html" /><link rel="prev" title="LeftGroupCallParticipant" href="LeftGroupCallParticipant.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.04.07"/>
-        <title>InputStream - PyTgCalls Documentation</title>
+        <title>played_time() - PyTgCalls Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -168,61 +168,61 @@
 <li class="toctree-l1"><a class="reference internal" href="../../start/examples.html">Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../client.html">PyTgCalls Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_api.html">Custom Api</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stream_type.html">Stream Type</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../methods/index.html">Available Methods</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../methods/get_max_voice_chat.html">get_max_voice_chat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/start.html">start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/run.html">run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/idle.html">idle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/change_volume_call.html">    change_volume_call</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/get_active_call.html">    get_active_call</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/get_call.html">    get_call</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/get_participants.html">    get_participants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/join_group_call.html">    join_group_call</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/leave_group_call.html">    leave_group_call</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/change_stream.html">    change_stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/mute_stream.html">    mute_stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/unmute_stream.html">    unmute_stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/pause_stream.html">    pause_stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/resume_stream.html">    resume_stream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../methods/start_custom_api.html">    start</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Available Methods</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="get_max_voice_chat.html">get_max_voice_chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="start.html">start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idle.html">idle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change_volume_call.html">    change_volume_call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_active_call.html">    get_active_call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_call.html">    get_call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_participants.html">    get_participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="join_group_call.html">    join_group_call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leave_group_call.html">    leave_group_call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change_stream.html">    change_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mute_stream.html">    mute_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unmute_stream.html">    unmute_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pause_stream.html">    pause_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resume_stream.html">    resume_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="start_custom_api.html">    start</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Available Types</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="GroupCall.html">GroupCall</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GroupCallParticipant.html">GroupCallParticipant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Update.html">Update</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ErrorDuringJoin.html">ErrorDuringJoin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LeftVoiceChat.html">LeftVoiceChat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ChangedStream.html">ChangedStream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MutedStream.html">MutedStream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="PausedStream.html">PausedStream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ResumedStream.html">ResumedStream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StreamAudioEnded.html">StreamAudioEnded</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StreamDeleted.html">StreamDeleted</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StreamVideoEnded.html">StreamVideoEnded</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UnMutedStream.html">UnMutedStream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="JoinedGroupCallParticipant.html">JoinedGroupCallParticipant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpdatedGroupCallParticipant.html">UpdatedGroupCallParticipant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LeftGroupCallParticipant.html">LeftGroupCallParticipant</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">InputStream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InputAudioStream.html">InputAudioStream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InputVideoStream.html">InputVideoStream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioImagePiped.html">AudioImagePiped</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioPiped.html">AudioPiped</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioVideoPiped.html">AudioVideoPiped</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VideoPiped.html">VideoPiped</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioParameters.html">AudioParameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VideoParameters.html">VideoParameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HighQualityAudio.html">HighQualityAudio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MediumQualityAudio.html">MediumQualityAudio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LowQualityAudio.html">LowQualityAudio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HighQualityVideo.html">HighQualityVideo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MediumQualityVideo.html">MediumQualityVideo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LowQualityVideo.html">LowQualityVideo</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../types/index.html">Available Types</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../types/GroupCall.html">GroupCall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/GroupCallParticipant.html">GroupCallParticipant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/Update.html">Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/ErrorDuringJoin.html">ErrorDuringJoin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/LeftVoiceChat.html">LeftVoiceChat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/ChangedStream.html">ChangedStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/MutedStream.html">MutedStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/PausedStream.html">PausedStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/ResumedStream.html">ResumedStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/StreamAudioEnded.html">StreamAudioEnded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/StreamDeleted.html">StreamDeleted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/StreamVideoEnded.html">StreamVideoEnded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/UnMutedStream.html">UnMutedStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/JoinedGroupCallParticipant.html">JoinedGroupCallParticipant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/UpdatedGroupCallParticipant.html">UpdatedGroupCallParticipant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/LeftGroupCallParticipant.html">LeftGroupCallParticipant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/InputStream.html">InputStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/InputAudioStream.html">InputAudioStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/InputVideoStream.html">InputVideoStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/AudioImagePiped.html">AudioImagePiped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/AudioPiped.html">AudioPiped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/AudioVideoPiped.html">AudioVideoPiped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/VideoPiped.html">VideoPiped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/AudioParameters.html">AudioParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/VideoParameters.html">VideoParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/HighQualityAudio.html">HighQualityAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/MediumQualityAudio.html">MediumQualityAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/LowQualityAudio.html">LowQualityAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/HighQualityVideo.html">HighQualityVideo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/MediumQualityVideo.html">MediumQualityVideo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../types/LowQualityVideo.html">LowQualityVideo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../decorators.html">Decorators</a></li>
@@ -274,48 +274,27 @@
           </label>
         </div>
         <article role="main">
-          <section id="inputstream">
-<h1>InputStream<a class="headerlink" href="#inputstream" title="Permalink to this heading">#</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="pytgcalls.types.InputStream">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytgcalls.types.</span></span><span class="sig-name descname"><span class="pre">InputStream</span></span><a class="headerlink" href="#pytgcalls.types.InputStream" title="Permalink to this definition">#</a></dt>
-<dd><p>The streams descriptor</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pytgcalls.types.InputStream.lip_sync">
-<span class="sig-name descname"><span class="pre">lip_sync</span></span><a class="headerlink" href="#pytgcalls.types.InputStream.lip_sync" title="Permalink to this definition">#</a></dt>
-<dd><p>Lip Sync mode</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pytgcalls.types.InputStream.stream_audio">
-<span class="sig-name descname"><span class="pre">stream_audio</span></span><a class="headerlink" href="#pytgcalls.types.InputStream.stream_audio" title="Permalink to this definition">#</a></dt>
-<dd><p>Input Audio Stream Descriptor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="InputAudioStream.html#pytgcalls.types.InputAudioStream" title="pytgcalls.types.InputAudioStream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputAudioStream()</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pytgcalls.types.InputStream.stream_video">
-<span class="sig-name descname"><span class="pre">stream_video</span></span><a class="headerlink" href="#pytgcalls.types.InputStream.stream_video" title="Permalink to this definition">#</a></dt>
-<dd><p>Input Video Stream Descriptor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="InputVideoStream.html#pytgcalls.types.InputVideoStream" title="pytgcalls.types.InputVideoStream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputVideoStream()</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
+          <section id="played-time">
+<h1>played_time()<a class="headerlink" href="#played-time" title="Permalink to this heading">#</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytgcalls.PyTgCalls.played_time">
+<span class="sig-prename descclassname"><span class="pre">PyTgCalls.</span></span><span class="sig-name descname"><span class="pre">played_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytgcalls.PyTgCalls.played_time" title="Permalink to this definition">#</a></dt>
+<dd><p>Get the played time of the stream</p>
+<p>This method allow to get the played time of the stream</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>stream_audio</strong> (<a class="reference internal" href="InputAudioStream.html#pytgcalls.types.InputAudioStream" title="pytgcalls.types.InputAudioStream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputAudioStream()</span></code></a>) – Audio File Descriptor</p></li>
-<li><p><strong>stream_video</strong> (<a class="reference internal" href="InputVideoStream.html#pytgcalls.types.InputVideoStream" title="pytgcalls.types.InputVideoStream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputVideoStream()</span></code></a>) – Video File Descriptor</p></li>
-<li><p><strong>lip_sync</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <strong>optional</strong>) – Lip Sync mode</p></li>
+<dd class="field-odd"><p><strong>chat_id</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code> | <code class="docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of the target chat.
+Can be a direct id (int) or a username (str)</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.NoMtProtoClientSet" title="pytgcalls.exceptions.NoMtProtoClientSet"><strong>NoMtProtoClientSet</strong></a> – In case you try
+    to call this method without any MtProto client</p></li>
+<li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.NodeJSNotRunning" title="pytgcalls.exceptions.NodeJSNotRunning"><strong>NodeJSNotRunning</strong></a> – In case you try
+    to call this method without do
+    <a class="reference internal" href="start.html#pytgcalls.PyTgCalls.start" title="pytgcalls.PyTgCalls.start"><code class="xref py py-meth docutils literal notranslate"><span class="pre">start()</span></code></a> before</p></li>
+<li><p><a class="reference internal" href="../exceptions.html#pytgcalls.exceptions.NoActiveGroupCall" title="pytgcalls.exceptions.NoActiveGroupCall"><strong>NoActiveGroupCall</strong></a> – In case you try
+    to edit a not started group call</p></li>
 </ul>
 </dd>
 </dl>
@@ -327,26 +306,8 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="InputAudioStream.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">InputAudioStream</div>
-              </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="LeftGroupCallParticipant.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">LeftGroupCallParticipant</div>
-                
-              </div>
-            </a>
+          
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
