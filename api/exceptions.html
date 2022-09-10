@@ -188,6 +188,7 @@
 <li class="toctree-l2"><a class="reference internal" href="methods/unmute_stream.html">    unmute_stream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="methods/pause_stream.html">    pause_stream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="methods/resume_stream.html">    resume_stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods/played_time.html">    played_time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="methods/start_custom_api.html">    start</a></li>
 </ul>
 </li>
@@ -362,6 +363,12 @@ before call these methods, raised by
 internal problems, raised by
 <a class="reference internal" href="methods/join_group_call.html#pytgcalls.PyTgCalls.join_group_call" title="pytgcalls.PyTgCalls.join_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join_group_call()</span></code></a></p>
 </dd></dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pytgcalls.exceptions.RTMPStreamNeeded">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytgcalls.exceptions.</span></span><span class="sig-name descname"><span class="pre">RTMPStreamNeeded</span></span><a class="headerlink" href="#pytgcalls.exceptions.RTMPStreamNeeded" title="Permalink to this definition">#</a></dt>
+<dd><p>Needed an RTMP Stream, raised by
+<a class="reference internal" href="methods/join_group_call.html#pytgcalls.PyTgCalls.join_group_call" title="pytgcalls.PyTgCalls.join_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join_group_call()</span></code></a></p>
+</dd></dl>
 </section>
 <section id="pytgcalls-errors">
 <h2>PyTgCalls Errors<a class="headerlink" href="#pytgcalls-errors" title="Permalink to this heading">#</a></h2>
@@ -396,6 +403,12 @@ internal problems, raised by
 <dt class="sig sig-object py" id="pytgcalls.exceptions.AlreadyJoinedError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytgcalls.exceptions.</span></span><span class="sig-name descname"><span class="pre">AlreadyJoinedError</span></span><a class="headerlink" href="#pytgcalls.exceptions.AlreadyJoinedError" title="Permalink to this definition">#</a></dt>
 <dd><p>Already joined into group call, raised by
+<a class="reference internal" href="methods/join_group_call.html#pytgcalls.PyTgCalls.join_group_call" title="pytgcalls.PyTgCalls.join_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join_group_call()</span></code></a></p>
+</dd></dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pytgcalls.exceptions.UnMuteNeeded">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytgcalls.exceptions.</span></span><span class="sig-name descname"><span class="pre">UnMuteNeeded</span></span><a class="headerlink" href="#pytgcalls.exceptions.UnMuteNeeded" title="Permalink to this definition">#</a></dt>
+<dd><p>Needed to unmute the userbot, raised by
 <a class="reference internal" href="methods/join_group_call.html#pytgcalls.PyTgCalls.join_group_call" title="pytgcalls.PyTgCalls.join_group_call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join_group_call()</span></code></a></p>
 </dd></dl>
 </section>

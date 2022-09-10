@@ -31,6 +31,7 @@ MtProto Errors
 .. autoexception:: pytgcalls.exceptions.InvalidMtProtoClient()
 .. autoexception:: pytgcalls.exceptions.NoMtProtoClientSet()
 .. autoexception:: pytgcalls.exceptions.TelegramServerError()
+.. autoexception:: pytgcalls.exceptions.RTMPStreamNeeded()
 
 PyTgCalls Errors
 ----------------
@@ -39,6 +40,7 @@ PyTgCalls Errors
 .. autoexception:: pytgcalls.exceptions.NoActiveGroupCall()
 .. autoexception:: pytgcalls.exceptions.NotInGroupCallError()
 .. autoexception:: pytgcalls.exceptions.AlreadyJoinedError()
+.. autoexception:: pytgcalls.exceptions.UnMuteNeeded()
 
 Stream Errors
 -------------
